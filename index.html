@@ -1668,34 +1668,63 @@ function hideGeo() { ['coloniaField','munField','edoField'].forEach(function(id)
 
 async function fetchCP(cp, preselect) {
  var st = document.getElementById('cpStatus');
+ st.textContent = 'Buscando...'; st.style.color = 'var(--muted)';
+ var apis = [
+   'https://api.zippopotam.us/mx/' + cp,
+   'https://sepomex.icalialabs.com/api/v1/zip_codes?zip_code=' + cp
+ ];
+ // Try primary: zippopotam
  try {
- var r = await fetch('https://cp.terio.dev/v1/codigos-postales/' + cp);
- if (!r.ok) throw new Error();
- var raw = await r.json();
- var d = raw.data || raw;
- var asents = d.asentamientos || d.colonias || [];
- var cols = [...new Set(asents.map(function(a){return a.d_asenta||a.colonia||a;}))].sort();
- var mun = d.d_mnpio || d.municipio || '';
- var edo = d.d_estado || d.estado || '';
+   var r = await fetch('https://api.zippopotam.us/mx/' + cp);
+   if (r.ok) {
+     var d = await r.json();
+     var places = d.places || [];
+     var cols = [...new Set(places.map(function(p){ return p['place name']; }))].sort();
+     var mun = places[0] ? places[0]['place name'] : '';
+     var edo = places[0] ? places[0]['state'] : '';
+     showGeoFields(cols, mun, edo, preselect, st);
+     return;
+   }
+ } catch(e) {}
+ // Fallback: open API
+ try {
+   var r2 = await fetch('https://api-sepomex.hckdrk.mx/query/info_cp/' + cp + '?type=simplified');
+   if (r2.ok) {
+     var d2 = await r2.json();
+     var response = d2.response || d2;
+     var asentamientos = response.asentamiento ? (Array.isArray(response.asentamiento) ? response.asentamiento : [response.asentamiento]) : [];
+     var mun2 = response.municipio || '';
+     var edo2 = response.estado || '';
+     showGeoFields(asentamientos, mun2, edo2, preselect, st);
+     return;
+   }
+ } catch(e2) {}
+ st.textContent = 'CP no encontrado'; st.style.color = '#c0392b'; hideGeo();
+}
+
+function showGeoFields(cols, mun, edo, preselect, st) {
  setF('fMun', mun); setF('fEdo', edo);
  document.getElementById('munField').style.display = 'block';
  document.getElementById('edoField').style.display = 'block';
  document.getElementById('coloniaField').style.display = 'block';
- if (cols.length === 1) {
- document.getElementById('coloniaSingle').style.display = 'block';
- document.getElementById('coloniaSelect').style.display = 'none';
- setF('fColoniaText', cols[0]); setF('fColonia', cols[0]);
+ if (!cols || cols.length === 0) {
+   document.getElementById('coloniaSingle').style.display = 'block';
+   document.getElementById('coloniaSelect').style.display = 'none';
+   setF('fColoniaText', ''); setF('fColonia', '');
+ } else if (cols.length === 1) {
+   document.getElementById('coloniaSingle').style.display = 'block';
+   document.getElementById('coloniaSelect').style.display = 'none';
+   setF('fColoniaText', cols[0]); setF('fColonia', cols[0]);
  } else {
- document.getElementById('coloniaSingle').style.display = 'none';
- document.getElementById('coloniaSelect').style.display = 'block';
- var sel = document.getElementById('fColoniaSel');
- sel.innerHTML = '<option value="">-- Elige tu colonia --</option>' + cols.map(function(c){return '<option value="'+c+'">'+c+'</option>';}).join('');
- sel.addEventListener('change', function(){setF('fColonia', sel.value);});
- setF('fColonia', '');
- if (preselect && cols.includes(preselect)) { sel.value = preselect; setF('fColonia', preselect); }
+   document.getElementById('coloniaSingle').style.display = 'none';
+   document.getElementById('coloniaSelect').style.display = 'block';
+   var sel = document.getElementById('fColoniaSel');
+   sel.innerHTML = '<option value="">-- Elige tu colonia --</option>' + cols.map(function(col){return '<option value="'+col+'">'+col+'</option>';}).join('');
+   sel.onchange = function(){ setF('fColonia', sel.value); };
+   setF('fColonia', '');
+   if (preselect && cols.indexOf(preselect) >= 0) { sel.value = preselect; setF('fColonia', preselect); }
  }
- st.textContent = ' ' + edo; st.style.color = 'var(--gold)';
- } catch(e) { st.textContent = 'CP no encontrado'; st.style.color = '#c0392b'; hideGeo(); }
+ if (st) { st.textContent = edo ? '✓ ' + edo : '✓ CP encontrado'; st.style.color = 'var(--gold)'; }
 }
 
 function goStep2() {
