@@ -283,7 +283,7 @@ td{padding:9px 12px;vertical-align:middle}
 <!-- ALTO VACIO -->
 <div id="sec-vacuum" style="display:none">
   <div class="hero">
-    <div class="hero-tag">Frozen &middot; Fresh &middot; Ready to Cook</div>
+    <div class="hero-tag">Frozen &middot; Fresh &middot; Ready to Eat</div>
     <h1 class="hero-h">Frozen Packs (Alto Vacío)</h1>
     <p class="hero-p">Lista para comer. Solo calienta y sirve cuando quieras.</p>
   </div>
@@ -694,21 +694,20 @@ const fmt = n => '$' + Math.round(n).toLocaleString('es-MX');
 
 const PRODUCTS = [
   // Kipes y masas
-  {s:'Kipes y masas',n:'Falafel Bites',q:'50 pz',p:455},
   {s:'Kipes y masas',n:'Falafel Frito',q:'30 bolas',p:275},
-  {s:'Kipes y masas',n:'Hojas de Parra Listas',q:'15 pz',p:440},
+  {s:'Kipes y masas',n:'Hojas de Parra',q:'15 pz',p:440},
   {s:'Kipes y masas',n:'Kipe Basha',q:'15 pz',p:620},
   {s:'Kipes y masas',n:'Kipe Charola de Trigo',q:'1 kg',p:590},
-  {s:'Kipes y masas',n:'Kipe Charola Individual',q:'6 pz',p:690},
+  {s:'Kipes y masas',n:'Kipe Charola Individual',q:'6 pz',p:590},
   {s:'Kipes y masas',n:'Kipe Charola Petit',q:'1/2 kg',p:415},
-  {s:'Kipes y masas',n:'Kipe de Papa con Pollo',q:'12 pz',p:395},
+  {s:'Kipes y masas',n:'Kipe de papa relleno de pollo',q:'12 pz',p:395},
   {s:'Kipes y masas',n:'Kipe de Papa con Queso',q:'12 pz',p:365},
   {s:'Kipes y masas',n:'Kipe Eras',q:'12 pz',p:420},
-  {s:'Kipes y masas',n:'Kipe Hamda Mini',q:'20 pz',p:235},
+  {s:'Kipes y masas',n:'Kipe Hamda (kipe chiquito)',q:'20 pz',p:235},
   {s:'Kipes y masas',n:'Kipe Nayyeh / Crudo',q:'1/2 kg',p:690},
-  {s:'Kipes y masas',n:'Kipe Rollo',q:'1 kg',p:530},
+  {s:'Kipes y masas',n:'Kipe Rollo',q:'16-20 pz',p:530},
   {s:'Kipes y masas',n:'Kipe Shami / Bola',q:'12 pz',p:495},
-  {s:'Kipes y masas',n:'Masa de Falafel',q:'25 pz',p:275},
+  {s:'Kipes y masas',n:'Masa de Falafel',q:'1 kg',p:275},
   {s:'Kipes y masas',n:'Masa de Kipe',q:'1 kg',p:510},
   // Carnes y aves
   {s:'Carnes y aves',n:'Albóndigas de res en jitomate',q:'15 pz',p:485},
@@ -763,7 +762,7 @@ const PRODUCTS = [
   {s:'Carnes y aves',n:'Spaguetti rojo con pechuga de pollo',q:'1 kg',p:485},
   {s:'Carnes y aves',n:'Tacos de barbacoa (cocido sin freír)',q:'12 pz',p:345},
   {s:'Carnes y aves',n:'Tacos de pollo (cocido sin freír)',q:'12 pz',p:259},
-  {s:'Carnes y aves',n:'Tacos de tinga de jamaica',q:'1 kg',p:null},
+  {s:'Carnes y aves',n:'Tinga de jamaica',q:'1/2 kg',p:225},
   {s:'Carnes y aves',n:'Teppanyaki de carne',q:'1 kg',p:487},
   {s:'Carnes y aves',n:'Teppanyaki de pollo',q:'1 kg',p:460},
   {s:'Carnes y aves',n:'Trompo Shawarma Carne',q:'1 kg',p:890},
@@ -798,7 +797,7 @@ const PRODUCTS = [
   {s:'Arroces y cereales',n:'Rajas con papa',q:'1 kg',p:325},
   // Ensaladas y guarniciones
   {s:'Ensaladas y guarniciones',n:'Babaganoush',q:'250 g',p:129},
-  {s:'Ensaladas y guarniciones',n:'Bazergan',q:'200 g',p:135},
+  {s:'Ensaladas y guarniciones',n:'Bazergan',q:'250 g',p:135},
   {s:'Ensaladas y guarniciones',n:'Betabel al limón',q:'250 g',p:130},
   {s:'Ensaladas y guarniciones',n:'Betabel mayo',q:'250 g',p:135},
   {s:'Ensaladas y guarniciones',n:'Chicharrón de jalapeño',q:'250 g',p:155},
@@ -838,7 +837,7 @@ const PRODUCTS = [
   {s:'Kids Menu — Verduras',n:'Elote dulce con mantequilla',q:'100 g',p:49},
 ]
 
-const LB_PROT = ['Barbacoa','Pastor de pollo','Pollo con alcachofas','Pescado empapelado','Carne con brocoli','Milanesa de pollo','Deditos de carne en salsa roja','Fajitas de pollo','Carnitas de atun fresco','Carne estofada con verduras','Pescado a la mantequilla','Albóndigas de res en jitomate','Teppanyaki de carne o pollo','Medallones de res','Chiles rellenos de carne','Pescado al pastor','Kebab','Salmón teriyaki','Brisket con champinon','Shawarma de pollo','Paella de carnes','Pollo con champinones','Atun sellado en cubos','Salpicon de pollo','Salpicon de carne','Kafta de carne','Pollo con mole','Kipe charola','Bistec a la mexicana','Pollo con berenjena','Alcachofas con pollo','Lasaña de verduras (con o sin queso)','Macarron con pollo','Enfrijoladas de queso y/o pollo','Tacos de tinga de jamaica','Brisket con papa cambray','Pescado al mojo de ajo','Pollo en salsa verde','Pastel azteca (con o sin queso)','Paella vegetariana'];
+const LB_PROT = ['Barbacoa','Pastor de pollo','Pollo con alcachofas','Pescado empapelado','Carne con brocoli','Milanesa de pollo','Deditos de carne en salsa roja','Fajitas de pollo','Carnitas de atun fresco','Carne estofada con verduras','Pescado a la mantequilla','Albóndigas de res en jitomate','Teppanyaki de carne o pollo','Medallones de res','Chiles rellenos de carne','Pescado al pastor','Kebab','Salmón teriyaki','Brisket con champinon','Shawarma de pollo','Paella de carnes','Pollo con champinones','Atun sellado en cubos','Salpicon de pollo','Salpicon de carne','Kafta de carne','Pollo con mole','Kipe charola','Bistec a la mexicana','Pollo con berenjena','Alcachofas con pollo','Lasaña de verduras (con o sin queso)','Macarron con pollo','Enfrijoladas de queso y/o pollo','Tinga de jamaica','Brisket con papa cambray','Pescado al mojo de ajo','Pollo en salsa verde','Pastel azteca (con o sin queso)','Paella vegetariana'];
 const LB_CER = ['Arroz con fideo','Arroz rojo','Fideo seco','Arroz con lentejas','Arroz al vapor','Arroz blanco','Arroz mexicano','Papa a la francesa','Arroz al cilantro','Arroz amarillo','Quinoa con verduras','Puré de papa','Munición con garbanzos','Frijoles bayos','Rajas con papa','Pan pita','Pasta blanca'];
 const LB_VEG = ['Ejotes salteados','Chayote al horno','Chicharo con zanahorias','Jitomate rostizado','Calabacitas sazonadas','Municiónes','Elotitos tatemados','Berenjena a la parmesana','Coliflor con salsa de ajonjoli','Zanahorias marroquis','Berenjena al grill','Edamames','Verduras al grill','Berenjena tatemada','Alcachofas doradas','Nopales asados','Esparragos asados','Brochetas de verduras','Betabel asado','Coliflor rostizada','Chayotes al grill','Brocoli encebollado','Ensalada caprese','Ceviche de palmitos','Ensalada mixta','Calabacitas a la mexicana','Berenjena frita','Coliflor a la paprika','Rollitos de calabaza con queso','Rajas con papa','Tabule','Ensalada arabe','Yogurt con pepino','Hojas de parra'];
 const LB_PROT_K = ['Nuggets de pollo (4 piezas)','Milanesa de pollo (120 g)','Kipe Bites (6 piezas)','Albóndigas en caldillo rojo (6 piezas)','Hamburguesa de res'];
@@ -882,8 +881,8 @@ const CT_PROT = [{n:'Barbacoa',p:890,g:1000},{n:'Trompo Shawarma Pollo',p:790,g:
 const CT_CER = [{n:'Arroz con Fideo',p:310,g:1000},{n:'Arroz con lentejas',p:359,g:1000},{n:'Arroz al cilantro',p:319,g:1000},{n:'Arroz amarillo',p:319,g:1000},{n:'Arroz rojo',p:329,g:1000},{n:'Arroz blanco',p:299,g:1000},{n:'Quinoa con verduras',p:315,g:1000},{n:'Puré de papa',p:195,g:500},{n:'Papa a la francesa',p:245,g:1000},{n:'Munición con garbanzos',p:354,g:1000},{n:'Rajas con papa',p:325,g:1000},{n:'Frijoles bayos',p:219,g:1000},{n:'Pan Pita',p:119,g:120}];
 const CT_VERD = [{n:'Berenjena Parmesana',p:645,g:1000},{n:'Soufflé de Calabaza',p:460,g:800},{n:'Calabazas Rellenas',p:540,g:1000},{n:'Jitomates Rellenos',p:560,g:1000},{n:'Nopales asados',p:null,g:1000}];
 const CT_ENSAL = [{n:'Ensalada árabe',p:120,g:250},{n:'Tabule',p:125,g:250},{n:'Coleslaw',p:125,g:250},{n:'Babaganoush',p:129,g:250},{n:'Betabel al limón',p:130,g:250},{n:'Edamames',p:135,g:250},{n:'Papa con huevo',p:125,g:250},{n:'Surimi especial',p:155,g:250},{n:'Ensalada de atún y apio',p:140,g:250}];
-const CT_BOT = [{n:'Falafel Frito',p:275,g:500,pz:30,d:'30 bolas/500g'},{n:'Falafel Bites',p:455,g:500,pz:50,d:'50 pzas/500g'},{n:'Kipe Hamda Mini',p:235,g:300,pz:20,d:'20 pzas'},{n:'Kipe Shami Bola',p:495,g:500,pz:12,d:'12 pzas/500g'},{n:'Lajmayin',p:420,g:300,pz:10,d:'10 pzas'},{n:'Sfija de carne',p:390,g:300,pz:10,d:'10 pzas'},{n:'Chips de pita con zaatar',p:195,g:200,d:'200g'},{n:'Papitas muy picosas',p:145,g:200,d:'200g'},{n:'Chicharrón de jalapeño',p:155,g:250,d:'250g'},{n:'Chiles Toreados',p:139,g:250,d:'250g'},
-  {n:'Hojas de Parra Listas',p:440,g:750,d:'15 pzas — $440'}];
+const CT_BOT = [{n:'Falafel Frito',p:275,g:500,pz:30,d:'30 bolas/500g'},{n:'Falafel Bites',p:455,g:500,pz:50,d:'50 pzas/500g'},{n:'Kipe Hamda (kipe chiquito)',p:235,g:300,pz:20,d:'20 pzas'},{n:'Kipe Shami Bola',p:495,g:500,pz:12,d:'12 pzas/500g'},{n:'Lajmayin',p:420,g:300,pz:10,d:'10 pzas'},{n:'Sfija de carne',p:390,g:300,pz:10,d:'10 pzas'},{n:'Chips de pita con zaatar',p:195,g:200,d:'200g'},{n:'Papitas muy picosas',p:145,g:200,d:'200g'},{n:'Chicharrón de jalapeño',p:155,g:250,d:'250g'},{n:'Chiles Toreados',p:139,g:250,d:'250g'},
+  {n:'Hojas de Parra',p:440,g:750,d:'15 pzas — $440'}];
 const ENVIO_ZONAS = [{km:5,c:150,l:'Zona 1 hasta 5km'},{km:15,c:250,l:'Zona 2 hasta 15km'},{km:30,c:400,l:'Zona 3 hasta 30km'},{km:50,c:650,l:'Zona 4 hasta 50km'},{km:999,c:null,l:'Zona 5 mas de 50km'}];
 
 // ============================================================
