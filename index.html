@@ -239,6 +239,23 @@ td{padding:9px 12px;vertical-align:middle}
 .home-cta:hover{background:var(--goldl)}
 
 #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--s1);border:.5px solid var(--borderg);color:var(--text);padding:12px 22px;border-radius:10px;font-size:14px;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;white-space:nowrap}
+
+
+.name-btn{background:none;border:none;color:var(--text);font-size:13px;cursor:default;text-align:left;padding:0}
+/* PHOTO MODAL */
+.photo-modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:500;align-items:center;justify-content:center;padding:20px}
+.photo-modal-ov.on{display:flex}
+.photo-modal{background:var(--s1);border:.5px solid var(--borderg);border-radius:var(--r);width:100%;max-width:320px;overflow:hidden;position:relative}
+.photo-modal-close{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.7);border:none;color:#fff;border-radius:50%;width:28px;height:28px;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:1;line-height:1}
+.photo-modal-close:hover{background:rgba(0,0,0,.9)}
+.photo-modal-img{width:100%;height:200px;background:var(--s2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.photo-modal-img img{width:100%;height:100%;object-fit:cover}
+.photo-modal-placeholder{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+.photo-modal-name{padding:12px 16px;font-family:var(--serif);font-size:15px;color:var(--text);font-weight:normal}
+.photo-modal-price{padding:0 16px 14px;font-size:14px;color:var(--gold)}
+.cam-btn{background:none;border:none;cursor:pointer;color:var(--muted);padding:2px 6px;font-size:14px;line-height:1;flex-shrink:0;transition:color .15s}
+.cam-btn:hover{color:var(--gold)}
+@media(pointer:fine){.cam-btn{cursor:pointer}}
 </style>
 </head>
 <body>
@@ -424,7 +441,7 @@ td{padding:9px 12px;vertical-align:middle}
  <div class="hero">
  <div class="hero-tag">Tradición &middot; Sabor &middot; Familia</div>
  <h1 class="hero-h">Shabbat Packs</h1>
- <p class="hero-p">Paquetes para 6-8 personas. Elige tus opciones y personaliza con botanas adicionales.</p>
+ <p class="hero-p">Paquetes para 10 personas. Elige tus opciones y personaliza con botanas adicionales.</p>
  </div>
  <div class="wrap">
 
@@ -434,13 +451,13 @@ td{padding:9px 12px;vertical-align:middle}
  <div class="ct-mode-ico"></div>
  <div class="ct-mode-name">Menú Carne</div>
  <div class="ct-mode-price">$3,590</div>
- <div class="ct-mode-desc">Para 6-8 personas</div>
+ <div class="ct-mode-desc">10 personas</div>
  </div>
  <div class="ct-mode" id="shb-lacteo-btn" onclick="switchShabbat('lacteo',this)">
  <div class="ct-mode-ico"></div>
  <div class="ct-mode-name">Menú Lácteo</div>
  <div class="ct-mode-price">$3,195</div>
- <div class="ct-mode-desc">Para 6-8 personas</div>
+ <div class="ct-mode-desc">10 personas</div>
  </div>
  </div>
 
@@ -500,14 +517,14 @@ td{padding:9px 12px;vertical-align:middle}
  <div style="text-align:right">
  <div style="font-size:11px;color:var(--muted);margin-bottom:4px">Total</div>
  <div class="ct-tot-amt" id="shb-total">$0</div>
- <div style="font-size:11px;color:var(--muted);margin-top:4px">Para 6-8 personas</div>
+ <div style="font-size:11px;color:var(--muted);margin-top:4px">10 personas</div>
  </div>
  </div>
 
  <div class="ct-anticipo" style="margin-top:14px">
  <div class="ct-ant-h">¿Listo para ordenar?</div>
  <div class="ct-ant-p">Contáctanos por WhatsApp para confirmar tu Shabbat Pack.</div>
- <button class="btn-wa-full" style="margin-top:14px" onclick="shabbatWA()">
+ <button class="btn-wa-full" style="margin-top:14px" onclick="addShabbatToCart()">
  <i class="ti ti-brand-whatsapp"></i> Ordenar por WhatsApp
  </button>
  </div>
@@ -542,7 +559,7 @@ td{padding:9px 12px;vertical-align:middle}
  <div class="cart-tot-row"><div class="cart-tot-lbl">Subtotal</div><div style="font-size:16px;color:var(--muted)" id="cartSub">$0</div></div>
  <div class="cart-tot-row" id="discRow" style="display:none"><div class="cart-tot-lbl" style="color:var(--gold)">Descuento</div><div style="font-size:16px;color:var(--gold)" id="cartDisc"></div></div>
  <div class="cart-tot-row"><div class="cart-tot-lbl">Total</div><div class="cart-tot-amt" id="cartTot">$0</div></div>
- <div class="cart-note">El costo de envío se calcula al confirmar. La fecha de entrega se coordina por WhatsApp después del pago.</div>
+ <div class="cart-note">El costo de envío se calcula al confirmar.<br>Las fechas de entrega se agendan vía WhatsApp después de realizar el pedido.</div>
  <button class="btn-primary" onclick="openCheckout()">Proceder al pago &rarr;</button>
  </div>
 </div>
@@ -672,11 +689,26 @@ td{padding:9px 12px;vertical-align:middle}
  <div class="success-ico"></div>
  <div class="success-h">Pedido confirmado</div>
  <div class="success-p" id="successMsg"></div>
- <button class="btn-wa-full" onclick="successWA()"><i class="ti ti-brand-whatsapp"></i> Confirmar por WhatsApp</button>
- <button onclick="closeCheckout()" class="btn-sec" style="max-width:300px;margin:0 auto">Cerrar</button>
+ <div style="font-size:13px;color:var(--muted);margin-bottom:8px">Agenda tu entrega aquí:</div>
+ <button class="btn-wa-full" onclick="scheduleWA()"><i class="ti ti-brand-whatsapp"></i> Agendar entrega por WhatsApp</button>
+ <button onclick="closeCheckout()" class="btn-sec" style="max-width:300px;margin:0 auto;display:block;margin-top:8px">Cerrar</button>
  </div>
 
  </div>
+</div>
+
+
+<!-- PHOTO MODAL -->
+<div class="photo-modal-ov" id="photoOv" onclick="closePhoto(event)">
+  <div class="photo-modal" id="photoModal">
+    <button class="photo-modal-close" onclick="closePhotoBtn()">&times;</button>
+    <div class="photo-modal-img" id="photoImgWrap">
+      <div class="photo-modal-placeholder" id="photoPlaceholder">Foto próximamente</div>
+      <img id="photoImg" src="" alt="" style="display:none">
+    </div>
+    <div class="photo-modal-name" id="photoName"></div>
+    <div class="photo-modal-price" id="photoPrice"></div>
+  </div>
 </div>
 
 <div id="toast"></div>
@@ -1038,7 +1070,7 @@ function shbCalc() {
  var total = base + botTotal;
 
  // Desglose
- var dh = '<div style="display:flex;justify-content:space-between"><span>Paquete ' + (shbMode === 'carne' ? 'Carne' : 'Lácteo') + ' (6-8 personas)</span><span style="color:var(--text)">' + fmt(base) + '</span></div>';
+ var dh = '<div style="display:flex;justify-content:space-between"><span>Paquete ' + (shbMode === 'carne' ? 'Carne' : 'Lácteo') + ' (10 personas)</span><span style="color:var(--text)">' + fmt(base) + '</span></div>';
  if (botTotal > 0) dh += '<div style="display:flex;justify-content:space-between"><span>Botanas adicionales</span><span style="color:var(--text)">' + fmt(botTotal) + '</span></div>';
  document.getElementById('shb-desglose').innerHTML = dh;
  document.getElementById('shb-total').textContent = fmt(total);
@@ -1051,7 +1083,7 @@ function addShabbatToCart() {
   SHB_BOTANAS.forEach(function(bot) { botTotal += (shbBotanas[bot.n] || 0) * bot.p; });
   var total = base + botTotal;
   var id = 'shb-' + Date.now();
-  var desc = 'Shabbat Pack ' + mode + ' (6-8 personas)';
+  var desc = 'Shabbat Pack ' + mode + ' (10 personas)';
   var groups = shbMode === 'carne'
     ? [{k:'c1'},{k:'c2'},{k:'c3'}]
     : [{k:'l1'},{k:'l2'},{k:'l3'}];
@@ -1067,7 +1099,7 @@ function addShabbatToCart() {
 function shabbatWA() {
  var mode = shbMode === 'carne' ? 'Menú Carne' : 'Menú Lácteo';
  var base = SHB_BASE[shbMode];
- var msg = '*Shabbat Pack — Punto & Pausa*\n\n' + mode + ' (6-8 personas)\n';
+ var msg = '*Shabbat Pack — Punto & Pausa*\n\n' + mode + ' (10 personas)\n';
  // Selections
  var groups = shbMode === 'carne'
  ? [{k:'c1',l:'Grupo 1'},{k:'c2',l:'Grupo 2'},{k:'c3',l:'Grupo 3'}]
@@ -1129,14 +1161,17 @@ function buildTable() {
  var tr = document.createElement('tr');
  tr.dataset.nm = p.n.toLowerCase();
  var priceCell = p.p ? fmt(p.p) : '<span class="t-pend">Consultar</span>';
+ var camSvg = '<svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 0.5L4 2H1C0.448 2 0 2.448 0 3V11C0 11.552 0.448 12 1 12H13C13.552 12 14 11.552 14 11V3C14 2.448 13.552 2 13 2H10L9 0.5H5Z" stroke="currentColor" stroke-width="0.8" fill="none"/><circle cx="7" cy="7" r="2.5" stroke="currentColor" stroke-width="0.8" fill="none"/></svg>';
  tr.innerHTML =
- '<td class="t-name">' + p.n + '</td>' +
+ '<td class="t-name"><span style="display:flex;align-items:center;gap:6px">' + p.n + '<button class="cam-btn" title="Ver foto">' + camSvg + '</button></span></td>' +
  '<td class="t-qty">' + p.q + '</td>' +
  '<td class="t-price">' + priceCell + '</td>' +
  '<td><button class="btn-add">+</button></td>';
  tr.querySelector('.btn-add').addEventListener('click', function() {
  addCart('p' + p.s.slice(0,3) + i, p.n, p.p || 0, p.q);
  });
+ var camBtn = tr.querySelector('.cam-btn');
+ if (camBtn) { (function(name, price) { camBtn.addEventListener('click', function(e) { e.stopPropagation(); openPhoto(name, price); }); })(p.n, p.p ? fmt(p.p) : ''); }
  tb.appendChild(tr);
  });
  });
@@ -1241,28 +1276,43 @@ function buildCtItems(gridId, items, cat) {
 }
 
 function ctPick(cat, idx, item, el) {
- if (cat === 'bot') {
- var bi = ctSel.bot.findIndex(function(x) { return x.n === item.n; });
- if (bi >= 0) ctSel.bot.splice(bi, 1); else ctSel.bot.push(item);
- el.classList.toggle('on', ctSel.bot.some(function(x) { return x.n === item.n; }));
- el.querySelector('.ct-chk').textContent = ctSel.bot.some(function(x) { return x.n === item.n; }) ? '' : '';
- } else {
- var lim = CT_CATS[ctCat][cat];
- var arr = ctSel[cat];
- var ei = arr.findIndex(function(x) { return x.n === item.n; });
- if (ei >= 0) {
- arr.splice(ei, 1);
- el.classList.remove('on');
- el.querySelector('.ct-chk').textContent = '';
- } else {
- if (arr.length >= lim) { showToast('Solo puedes elegir ' + lim + (lim === 1 ? ' opción' : ' opciónes') + ' en esta categoria'); return; }
- arr.push(item);
- el.classList.add('on');
- el.querySelector('.ct-chk').textContent = '';
- }
- updateCtCounts();
- }
- ctRecalc();
+  if (cat === 'bot') {
+    var bi = ctSel.bot.findIndex(function(x) { return x.n === item.n; });
+    if (bi >= 0) { ctSel.bot.splice(bi, 1); el.classList.remove('on'); el.querySelector('.ct-chk').textContent = ''; }
+    else { ctSel.bot.push(item); el.classList.add('on'); el.querySelector('.ct-chk').textContent = '\u2713'; }
+    ctRecalc();
+    return;
+  }
+  var lim = CT_CATS[ctCat][cat];
+  var arr = ctSel[cat];
+  var ei = arr.findIndex(function(x) { return x.n === item.n; });
+  if (ei >= 0) {
+    // Deselect
+    arr.splice(ei, 1);
+    el.classList.remove('on');
+    el.querySelector('.ct-chk').textContent = '';
+  } else {
+    if (arr.length >= lim) {
+      // Auto-substitute: remove first selected, add new
+      var removed = arr.shift();
+      var grid = el.closest('.ct-grid');
+      if (grid) {
+        grid.querySelectorAll('.ct-item').forEach(function(it) {
+          var nameEl = it.querySelector('.ct-item-name');
+          if (nameEl && nameEl.textContent.trim() === removed.n) {
+            it.classList.remove('on');
+            it.querySelector('.ct-chk').textContent = '';
+          }
+        });
+      }
+      showToast('Se sustituyó por: ' + item.n + '. Límite: ' + lim + (lim === 1 ? ' opción' : ' opciones'));
+    }
+    arr.push(item);
+    el.classList.add('on');
+    el.querySelector('.ct-chk').textContent = '\u2713';
+  }
+  updateCtCounts();
+  ctRecalc();
 }
 
 function updateCtCounts() {
@@ -1725,6 +1775,11 @@ function saveData(withCard) {
  } catch(e) {}
 }
 
+function scheduleWA() {
+  var msg = 'Hola, acabo de realizar mi pedido en Punto & Pausa y me gustaria agendar la fecha de entrega.';
+  window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg));
+}
+
 function successWA() {
  var items = Object.values(cart);
  var sub = items.reduce(function(s,v){return s+v.price*v.count;},0);
@@ -1793,6 +1848,38 @@ function showToast(msg) {
  var t = document.getElementById('toast');
  t.textContent = msg; t.style.opacity = '1';
  clearTimeout(t._t); t._t = setTimeout(function(){t.style.opacity='0';}, 2800);
+}
+
+
+// ============================================================
+// PHOTO MODAL
+// ============================================================
+// Photo map: product name -> image URL (add URLs as photos arrive)
+var PHOTOS = {
+  // Example: 'Barbacoa': 'https://example.com/barbacoa.jpg',
+};
+
+function openPhoto(name, price) {
+  document.getElementById('photoName').textContent = name;
+  document.getElementById('photoPrice').textContent = price ? price : '';
+  var img = document.getElementById('photoImg');
+  var placeholder = document.getElementById('photoPlaceholder');
+  if (PHOTOS[name]) {
+    img.src = PHOTOS[name];
+    img.style.display = 'block';
+    placeholder.style.display = 'none';
+  } else {
+    img.style.display = 'none';
+    placeholder.style.display = 'block';
+    placeholder.textContent = 'Foto próximamente';
+  }
+  document.getElementById('photoOv').classList.add('on');
+}
+function closePhotoBtn() {
+  document.getElementById('photoOv').classList.remove('on');
+}
+function closePhoto(e) {
+  if (e.target === document.getElementById('photoOv')) closePhotoBtn();
 }
 
 // ============================================================
