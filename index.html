@@ -256,9 +256,10 @@ td{padding:9px 12px;vertical-align:middle}
   </header>
   <nav class="nav">
     <button class="nav-tab on" data-sec="home">Inicio</button>
-    <button class="nav-tab" data-sec="vacuum">Alto Vacio</button>
+    <button class="nav-tab" data-sec="vacuum">Frozen Packs</button>
     <button class="nav-tab" data-sec="lunch">Lunch Box</button>
     <button class="nav-tab" data-sec="catering">Catering</button>
+  <button class="nav-tab" data-sec="shabbat">Shabbat Packs</button>
   </nav>
 </div>
 
@@ -282,8 +283,8 @@ td{padding:9px 12px;vertical-align:middle}
 <!-- ALTO VACIO -->
 <div id="sec-vacuum" style="display:none">
   <div class="hero">
-    <div class="hero-tag">Healthy &middot; Fresh &middot; Authentic</div>
-    <h1 class="hero-h">Cocina al alto vacio</h1>
+    <div class="hero-tag">Frozen &middot; Fresh &middot; Ready to Cook</div>
+    <h1 class="hero-h">Frozen Packs (Alto Vacío)</h1>
     <p class="hero-p">Lista para comer. Solo calienta y sirve cuando quieras.</p>
   </div>
   <div class="wrap">
@@ -414,6 +415,103 @@ td{padding:9px 12px;vertical-align:middle}
       <div class="ct-ant-p">Se requiere <b>50% de anticipo</b> para confirmar el evento.<br>El <b>50% restante</b> se paga contra entrega.</div>
       <button class="btn-wa-full" style="margin-top:14px" onclick="caterWA()"><i class="ti ti-brand-whatsapp"></i> Confirmar evento por WhatsApp</button>
     </div>
+  </div>
+</div>
+
+
+<!-- SHABBAT PACKS -->
+<div id="sec-shabbat" style="display:none">
+  <div class="hero">
+    <div class="hero-tag">Tradición &middot; Sabor &middot; Familia</div>
+    <h1 class="hero-h">Shabbat Packs</h1>
+    <p class="hero-p">Paquetes para 6-8 personas. Elige tus opciones y personaliza con botanas adicionales.</p>
+  </div>
+  <div class="wrap">
+
+    <!-- SELECTOR DE MENU -->
+    <div class="ct-modes" style="grid-template-columns:1fr 1fr;margin-bottom:24px">
+      <div class="ct-mode on" id="shb-carne-btn" onclick="switchShabbat('carne',this)">
+        <div class="ct-mode-ico">&#129385;</div>
+        <div class="ct-mode-name">Menú Carne</div>
+        <div class="ct-mode-price">$3,590</div>
+        <div class="ct-mode-desc">Para 6-8 personas</div>
+      </div>
+      <div class="ct-mode" id="shb-lacteo-btn" onclick="switchShabbat('lacteo',this)">
+        <div class="ct-mode-ico">&#129472;</div>
+        <div class="ct-mode-name">Menú Lácteo</div>
+        <div class="ct-mode-price">$3,195</div>
+        <div class="ct-mode-desc">Para 6-8 personas</div>
+      </div>
+    </div>
+
+    <!-- MENU CARNE -->
+    <div id="shb-carne">
+      <div class="ct-card">
+        <div class="ct-card-h">Elige una opción de cada grupo</div>
+
+        <div class="ct-subcat">
+          <div class="ct-subcat-h">Grupo 1 <span class="ct-count" id="shb-c1-count">0/1</span></div>
+          <div class="ct-grid" id="shb-c1-grid"></div>
+        </div>
+        <div class="ct-subcat">
+          <div class="ct-subcat-h">Grupo 2 <span class="ct-count" id="shb-c2-count">0/1</span></div>
+          <div class="ct-grid" id="shb-c2-grid"></div>
+        </div>
+        <div class="ct-subcat">
+          <div class="ct-subcat-h">Grupo 3 <span class="ct-count" id="shb-c3-count">0/1</span></div>
+          <div class="ct-grid" id="shb-c3-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENU LACTEO -->
+    <div id="shb-lacteo" style="display:none">
+      <div class="ct-card">
+        <div class="ct-card-h">Elige una opción de cada grupo</div>
+
+        <div class="ct-subcat">
+          <div class="ct-subcat-h">Grupo 1 <span class="ct-count" id="shb-l1-count">0/1</span></div>
+          <div class="ct-grid" id="shb-l1-grid"></div>
+        </div>
+        <div class="ct-subcat">
+          <div class="ct-subcat-h">Grupo 2 <span class="ct-count" id="shb-l2-count">0/1</span></div>
+          <div class="ct-grid" id="shb-l2-grid"></div>
+        </div>
+        <div class="ct-subcat">
+          <div class="ct-subcat-h">Grupo 3 <span class="ct-count" id="shb-l3-count">0/1</span></div>
+          <div class="ct-grid" id="shb-l3-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTANAS ADICIONALES -->
+    <div class="ct-card">
+      <div class="ct-card-h">&#127863; Botanas <span class="ct-elig" style="color:#c0392b;font-weight:600">&#9888; Costo adicional al paquete</span></div>
+      <p class="sec-p" style="margin-bottom:14px">Agrega las botanas que quieras y la cantidad de órdenes de cada una.</p>
+      <div id="shb-botanas-grid"></div>
+    </div>
+
+    <!-- RESUMEN Y TOTAL -->
+    <div class="ct-total">
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px">Resumen</div>
+        <div id="shb-desglose" style="font-size:13px;line-height:2;color:var(--muted)"></div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:11px;color:var(--muted);margin-bottom:4px">Total</div>
+        <div class="ct-tot-amt" id="shb-total">$0</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Para 6-8 personas</div>
+      </div>
+    </div>
+
+    <div class="ct-anticipo" style="margin-top:14px">
+      <div class="ct-ant-h">¿Listo para ordenar?</div>
+      <div class="ct-ant-p">Contáctanos por WhatsApp para confirmar tu Shabbat Pack.</div>
+      <button class="btn-wa-full" style="margin-top:14px" onclick="shabbatWA()">
+        <i class="ti ti-brand-whatsapp"></i> Ordenar por WhatsApp
+      </button>
+    </div>
+
   </div>
 </div>
 
@@ -596,133 +694,149 @@ const fmt = n => '$' + Math.round(n).toLocaleString('es-MX');
 
 const PRODUCTS = [
   // Kipes y masas
-  {s:'Kipes y masas',n:'Falafel Frito',q:'30 bolas',p:275},
-  {s:'Kipes y masas',n:'Masa de Falafel',q:'25 pz',p:275},
   {s:'Kipes y masas',n:'Falafel Bites',q:'50 pz',p:455},
+  {s:'Kipes y masas',n:'Falafel Frito',q:'30 bolas',p:275},
   {s:'Kipes y masas',n:'Hojas de Parra Listas',q:'15 pz',p:440},
-  {s:'Kipes y masas',n:'Kipe Charola de Trigo',q:'1 kg',p:590},
-  {s:'Kipes y masas',n:'Kipe Charola Petit',q:'1/2 kg',p:415},
-  {s:'Kipes y masas',n:'Kipe Charola Individual',q:'6 pz',p:690},
-  {s:'Kipes y masas',n:'Kipe Nayyeh / Crudo',q:'1/2 kg',p:690},
   {s:'Kipes y masas',n:'Kipe Basha',q:'15 pz',p:620},
-  {s:'Kipes y masas',n:'Kipe Shami / Bola',q:'12 pz',p:495},
-  {s:'Kipes y masas',n:'Kipe Hamda Mini',q:'20 pz',p:235},
-  {s:'Kipes y masas',n:'Kipe Eras',q:'12 pz',p:420},
-  {s:'Kipes y masas',n:'Kipe de Papa con Queso',q:'12 pz',p:365},
+  {s:'Kipes y masas',n:'Kipe Charola de Trigo',q:'1 kg',p:590},
+  {s:'Kipes y masas',n:'Kipe Charola Individual',q:'6 pz',p:690},
+  {s:'Kipes y masas',n:'Kipe Charola Petit',q:'1/2 kg',p:415},
   {s:'Kipes y masas',n:'Kipe de Papa con Pollo',q:'12 pz',p:395},
+  {s:'Kipes y masas',n:'Kipe de Papa con Queso',q:'12 pz',p:365},
+  {s:'Kipes y masas',n:'Kipe Eras',q:'12 pz',p:420},
+  {s:'Kipes y masas',n:'Kipe Hamda Mini',q:'20 pz',p:235},
+  {s:'Kipes y masas',n:'Kipe Nayyeh / Crudo',q:'1/2 kg',p:690},
   {s:'Kipes y masas',n:'Kipe Rollo',q:'1 kg',p:530},
+  {s:'Kipes y masas',n:'Kipe Shami / Bola',q:'12 pz',p:495},
+  {s:'Kipes y masas',n:'Masa de Falafel',q:'25 pz',p:275},
   {s:'Kipes y masas',n:'Masa de Kipe',q:'1 kg',p:510},
   // Carnes y aves
+  {s:'Carnes y aves',n:'Albóndigas de res en jitomate',q:'15 pz',p:485},
+  {s:'Carnes y aves',n:'Alcachofas con pollo',q:'1 kg',p:870},
   {s:'Carnes y aves',n:'Barbacoa',q:'1 kg',p:890},
-  {s:'Carnes y aves',n:'Trompo Shawarma Pollo',q:'1 kg',p:790},
-  {s:'Carnes y aves',n:'Trompo Shawarma Carne',q:'1 kg',p:890},
-  {s:'Carnes y aves',n:'Pollo Teriyaki',q:'1 kg',p:695},
-  {s:'Carnes y aves',n:'Sfija de carne',q:'10 pz',p:390},
+  {s:'Carnes y aves',n:'Barbacoa con champiñones',q:'1 kg',p:995},
+  {s:'Carnes y aves',n:'Bistec a la mexicana',q:'1 kg',p:475},
   {s:'Carnes y aves',n:'Brisket con Champinon',q:'1 kg',p:940},
-  {s:'Carnes y aves',n:'Pollo al Pastor',q:'1 kg',p:790},
-  {s:'Carnes y aves',n:'Nuggets de Pechuga',q:'12 pz',p:410},
+  {s:'Carnes y aves',n:'Brisket con papa cambray',q:'1 kg',p:987},
+  {s:'Carnes y aves',n:'Carne al adobo con zanahoria',q:'1 kg',p:497},
+  {s:'Carnes y aves',n:'Chicken lo mein',q:'1 kg',p:589},
+  {s:'Carnes y aves',n:'Chiles rellenos de carne',q:'6 pz',p:258},
+  {s:'Carnes y aves',n:'Chícharos con carne',q:'1 kg',p:540},
+  {s:'Carnes y aves',n:'Cubos de pechuga de pollo agridulce',q:'1 kg',p:750},
+  {s:'Carnes y aves',n:'Enfrijoladas de queso y/o pollo',q:'1 kg',p:null},
+  {s:'Carnes y aves',n:'Estofado de res con verduras',q:'1 kg',p:569},
+  {s:'Carnes y aves',n:'Fajitas de pollo asadas',q:'12 pz',p:567},
   {s:'Carnes y aves',n:'Hamburguesa de Carne',q:'6 pz',p:430},
   {s:'Carnes y aves',n:'Hamburguesa de Pollo',q:'6 pz',p:325},
+  {s:'Carnes y aves',n:'Kafta de carne',q:'1 kg',p:437},
+  {s:'Carnes y aves',n:'Kebab',q:'8 pz',p:355},
+  {s:'Carnes y aves',n:'Kipe charola de papa relleno de pollo en salsa verde',q:'1 kg',p:695},
+  {s:'Carnes y aves',n:'Lajmayin',q:'10 pz',p:420},
+  {s:'Carnes y aves',n:'Macarron con pollo',q:'1 kg',p:698},
+  {s:'Carnes y aves',n:'Medallones de res',q:'1 kg',p:469},
+  {s:'Carnes y aves',n:'Milanesa de pollo empanizada',q:'6 pz',p:664},
   {s:'Carnes y aves',n:'Muerras de Carne',q:'1 pz',p:46},
   {s:'Carnes y aves',n:'Muerras de Queso',q:'1 pz',p:49},
-  {s:'Carnes y aves',n:'Kebab',q:'8 pz',p:355},
-  {s:'Carnes y aves',n:'Pollo con Alcachofas',q:'1 kg',p:805},
-  {s:'Carnes y aves',n:'Lajmayin',q:'10 pz',p:420},
-  {s:'Carnes y aves',n:'Teppanyaki de pollo',q:'1 kg',p:460},
-  {s:'Carnes y aves',n:'Teppanyaki de carne',q:'1 kg',p:487},
-  {s:'Carnes y aves',n:'Albóndigas de res en jitomate',q:'15 pz',p:485},
-  {s:'Carnes y aves',n:'Bistec a la mexicana',q:'1 kg',p:475},
-  {s:'Carnes y aves',n:'Kafta de carne',q:'1 kg',p:437},
-  {s:'Carnes y aves',n:'Medallones de res',q:'1 kg',p:469},
-  {s:'Carnes y aves',n:'Salmón teriyaki',q:'1 kg',p:667},
-  {s:'Carnes y aves',n:'Brisket con papa cambray',q:'1 kg',p:987},
-  {s:'Carnes y aves',n:'Estofado de res con verduras',q:'1 kg',p:569},
-  {s:'Carnes y aves',n:'Carne al adobo con zanahoria',q:'1 kg',p:497},
-  {s:'Carnes y aves',n:'Pescado al mojo de ajo',q:'1 kg',p:679},
-  {s:'Carnes y aves',n:'Pescado al limon y mantequilla',q:'1 kg',p:659},
-  {s:'Carnes y aves',n:'Pollo en salsa verde con nopales',q:'1 kg',p:560},
-  {s:'Carnes y aves',n:'Pollo con champinones',q:'1 kg',p:525},
-  {s:'Carnes y aves',n:'Chiles rellenos de carne',q:'6 pz',p:258},
-  {s:'Carnes y aves',n:'Pescado empapelado',q:'4 pz',p:558},
-  {s:'Carnes y aves',n:'Milanesa de pollo empanizada',q:'6 pz',p:664},
-  {s:'Carnes y aves',n:'Fajitas de pollo asadas',q:'12 pz',p:567},
-  {s:'Carnes y aves',n:'Shawarma de pollo',q:'1 kg',p:429},
-  {s:'Carnes y aves',n:'Salpicon de pollo',q:'1 kg',p:569},
-  {s:'Carnes y aves',n:'Salpicon de carne',q:'1 kg',p:620},
-  {s:'Carnes y aves',n:'Pollo con mole',q:'1 kg',p:845},
+  {s:'Carnes y aves',n:'Nuggets de Pechuga',q:'12 pz',p:410},
   {s:'Carnes y aves',n:'Paella de carnes frias',q:'1 kg',p:595},
   {s:'Carnes y aves',n:'Paella de pescado',q:'1 kg',p:625},
   {s:'Carnes y aves',n:'Paella vegetariana',q:'1 kg',p:455},
+  {s:'Carnes y aves',n:'Pescado al limon y mantequilla',q:'1 kg',p:659},
+  {s:'Carnes y aves',n:'Pescado al mojo de ajo',q:'1 kg',p:679},
+  {s:'Carnes y aves',n:'Pescado empapelado',q:'4 pz',p:558},
+  {s:'Carnes y aves',n:'Pollo al Pastor',q:'1 kg',p:790},
+  {s:'Carnes y aves',n:'Pollo con Alcachofas',q:'1 kg',p:805},
   {s:'Carnes y aves',n:'Pollo con berenjena al horno',q:'1 kg',p:689},
-  {s:'Carnes y aves',n:'Macarron con pollo',q:'1 kg',p:698},
-  {s:'Carnes y aves',n:'Alcachofas con pollo',q:'1 kg',p:870},
+  {s:'Carnes y aves',n:'Pollo con champinones',q:'1 kg',p:525},
+  {s:'Carnes y aves',n:'Pollo con mole',q:'1 kg',p:845},
+  {s:'Carnes y aves',n:'Pollo en salsa verde con nopales',q:'1 kg',p:560},
+  {s:'Carnes y aves',n:'Pollo Teriyaki',q:'1 kg',p:695},
+  {s:'Carnes y aves',n:'Puntas de pechuga de pollo al pastor',q:'1 kg',p:567},
+  {s:'Carnes y aves',n:'Ribeye corte fino con salsa oriental de ajonjolí',q:'1 kg',p:1125},
+  {s:'Carnes y aves',n:'Salmón teriyaki',q:'1 kg',p:667},
+  {s:'Carnes y aves',n:'Salpicon de carne',q:'1 kg',p:620},
+  {s:'Carnes y aves',n:'Salpicon de pollo',q:'1 kg',p:569},
+  {s:'Carnes y aves',n:'Sfija de carne',q:'10 pz',p:390},
+  {s:'Carnes y aves',n:'Sfijas de res',q:'12 pz',p:435},
+  {s:'Carnes y aves',n:'Shawarma de pechuga de pollo',q:'1 kg',p:760},
+  {s:'Carnes y aves',n:'Shawarma de pollo',q:'1 kg',p:429},
+  {s:'Carnes y aves',n:'Spaguetti rojo con pechuga de pollo',q:'1 kg',p:485},
+  {s:'Carnes y aves',n:'Tacos de barbacoa (cocido sin freír)',q:'12 pz',p:345},
+  {s:'Carnes y aves',n:'Tacos de pollo (cocido sin freír)',q:'12 pz',p:259},
   {s:'Carnes y aves',n:'Tacos de tinga de jamaica',q:'1 kg',p:null},
-  {s:'Carnes y aves',n:'Enfrijoladas de queso y/o pollo',q:'1 kg',p:null},
+  {s:'Carnes y aves',n:'Teppanyaki de carne',q:'1 kg',p:487},
+  {s:'Carnes y aves',n:'Teppanyaki de pollo',q:'1 kg',p:460},
+  {s:'Carnes y aves',n:'Trompo Shawarma Carne',q:'1 kg',p:890},
+  {s:'Carnes y aves',n:'Trompo Shawarma Pollo',q:'1 kg',p:790},
   // Pastas y preparaciones
-  {s:'Pastas y preparaciones',n:'Tallarin con Calzones de Queso',q:'1 kg',p:640},
-  {s:'Pastas y preparaciones',n:'Pasta Rolls',q:'20 pz',p:690},
   {s:'Pastas y preparaciones',n:'Berenjena Parmesana',q:'1 kg',p:645},
-  {s:'Pastas y preparaciones',n:'Soufflé de Calabaza',q:'1 pz',p:460},
-  {s:'Pastas y preparaciones',n:'Calabazas Rellenas',q:'12 pz',p:540},
+  {s:'Pastas y preparaciones',n:'Calabazas rellenas de arroz con garbanzos y mantequilla',q:'12 pz',p:540},
+  {s:'Pastas y preparaciones',n:'Calabazas rellenas de carne con arroz',q:'12 pz',p:540},
+  {s:'Pastas y preparaciones',n:'Calabazas rellenas de carne con arroz al limón',q:'12 pz',p:615},
+  {s:'Pastas y preparaciones',n:'Calabazas rellenas de carne con arroz en salsa de tamarindo',q:'12 pz',p:625},
+  {s:'Pastas y preparaciones',n:'Calzones rellenos de queso (semi cocidos)',q:'20 pz',p:510},
   {s:'Pastas y preparaciones',n:'Jitomates Rellenos',q:'12 pz',p:560},
   {s:'Pastas y preparaciones',n:'Lasaña de verduras (con o sin queso)',q:'1 kg',p:540},
+  {s:'Pastas y preparaciones',n:'Mini pizzas',q:'12 pz',p:349},
+  {s:'Pastas y preparaciones',n:'Pasta Rolls',q:'20 pz',p:690},
   {s:'Pastas y preparaciones',n:'Pastel azteca (con o sin queso)',q:'1 pz',p:495},
+  {s:'Pastas y preparaciones',n:'Soufflé de Calabaza',q:'1 pz',p:460},
+  {s:'Pastas y preparaciones',n:'Tallarin con Calzones de Queso',q:'1 kg',p:640},
   // Arroces y cereales
-  {s:'Arroces y cereales',n:'Arroz con Fideo',q:'1 kg',p:310},
-  {s:'Arroces y cereales',n:'Arroz con lentejas',q:'1 kg',p:359},
   {s:'Arroces y cereales',n:'Arroz al cilantro',q:'1 kg',p:319},
   {s:'Arroces y cereales',n:'Arroz amarillo',q:'1 kg',p:319},
-  {s:'Arroces y cereales',n:'Arroz rojo',q:'1 kg',p:329},
   {s:'Arroces y cereales',n:'Arroz blanco',q:'1 kg',p:299},
-  {s:'Arroces y cereales',n:'Quinoa con verduras',q:'1 kg',p:315},
+  {s:'Arroces y cereales',n:'Arroz con Fideo',q:'1 kg',p:310},
+  {s:'Arroces y cereales',n:'Arroz con lentejas',q:'1 kg',p:359},
+  {s:'Arroces y cereales',n:'Arroz rojo',q:'1 kg',p:329},
+  {s:'Arroces y cereales',n:'Frijoles bayos',q:'1 kg',p:219},
   {s:'Arroces y cereales',n:'Munición',q:'1 kg',p:310},
   {s:'Arroces y cereales',n:'Munición con garbanzos',q:'1 kg',p:354},
-  {s:'Arroces y cereales',n:'Puré de papa',q:'500 g',p:195},
   {s:'Arroces y cereales',n:'Papa a la francesa',q:'1 kg',p:245},
+  {s:'Arroces y cereales',n:'Puré de papa',q:'500 g',p:195},
+  {s:'Arroces y cereales',n:'Quinoa con verduras',q:'1 kg',p:315},
   {s:'Arroces y cereales',n:'Rajas con papa',q:'1 kg',p:325},
-  {s:'Arroces y cereales',n:'Frijoles bayos',q:'1 kg',p:219},
-  // Ensaladas
-  {s:'Ensaladas y guarniciones',n:'Ensalada árabe',q:'250 g',p:120},
-  {s:'Ensaladas y guarniciones',n:'Tabule',q:'250 g',p:125},
-  {s:'Ensaladas y guarniciones',n:'Coleslaw',q:'250 g',p:125},
-  {s:'Ensaladas y guarniciones',n:'Surimi especial',q:'250 g',p:155},
-  {s:'Ensaladas y guarniciones',n:'Papa con huevo',q:'250 g',p:125},
-  {s:'Ensaladas y guarniciones',n:'Bazergan',q:'200 g',p:135},
-  {s:'Ensaladas y guarniciones',n:'Ensalada de atún y apio',q:'250 g',p:140},
+  // Ensaladas y guarniciones
   {s:'Ensaladas y guarniciones',n:'Babaganoush',q:'250 g',p:129},
+  {s:'Ensaladas y guarniciones',n:'Bazergan',q:'200 g',p:135},
   {s:'Ensaladas y guarniciones',n:'Betabel al limón',q:'250 g',p:130},
   {s:'Ensaladas y guarniciones',n:'Betabel mayo',q:'250 g',p:135},
+  {s:'Ensaladas y guarniciones',n:'Chicharrón de jalapeño',q:'250 g',p:155},
+  {s:'Ensaladas y guarniciones',n:'Chips de pita con zaatar',q:'200 g',p:195},
+  {s:'Ensaladas y guarniciones',n:'Col blanca suave',q:'250 g',p:129},
+  {s:'Ensaladas y guarniciones',n:'Coleslaw',q:'250 g',p:125},
+  {s:'Ensaladas y guarniciones',n:'Condimento de shawarma',q:'250 g',p:215},
   {s:'Ensaladas y guarniciones',n:'Edamames',q:'250 g',p:135},
   {s:'Ensaladas y guarniciones',n:'Edamames picosos',q:'250 g',p:145},
-  {s:'Ensaladas y guarniciones',n:'Papitas muy picosas',q:'200 g',p:145},
-  {s:'Ensaladas y guarniciones',n:'Chicharrón de jalapeño',q:'250 g',p:155},
-  {s:'Ensaladas y guarniciones',n:'Col blanca suave',q:'250 g',p:129},
   {s:'Ensaladas y guarniciones',n:'Elotitos mayo',q:'250 g',p:125},
-  {s:'Ensaladas y guarniciones',n:'Condimento de shawarma',q:'250 g',p:215},
-  {s:'Ensaladas y guarniciones',n:'Papitas con zaatar',q:'250 g',p:125},
+  {s:'Ensaladas y guarniciones',n:'Ensalada de atún y apio',q:'250 g',p:140},
+  {s:'Ensaladas y guarniciones',n:'Ensalada árabe',q:'250 g',p:120},
   {s:'Ensaladas y guarniciones',n:'Pan pita casero',q:'6 pz',p:119},
-  {s:'Ensaladas y guarniciones',n:'Chips de pita con zaatar',q:'200 g',p:195},
-  // Kids Menu
-    // Kids Menu - Proteínas
-  {s:'Kids Menu — Proteínas',n:'Nuggets de pollo',q:'4 pz',p:147},
-  {s:'Kids Menu — Proteínas',n:'Milanesa de pollo',q:'125 g',p:99},
-  {s:'Kids Menu — Proteínas',n:'Kipe Bites',q:'6 pz',p:115},
+  {s:'Ensaladas y guarniciones',n:'Papa con huevo',q:'250 g',p:125},
+  {s:'Ensaladas y guarniciones',n:'Papitas con zaatar',q:'250 g',p:125},
+  {s:'Ensaladas y guarniciones',n:'Papitas muy picosas',q:'200 g',p:145},
+  {s:'Ensaladas y guarniciones',n:'Surimi especial',q:'250 g',p:155},
+  {s:'Ensaladas y guarniciones',n:'Tabule',q:'250 g',p:125},
+  // Kids Menu — Proteínas
   {s:'Kids Menu — Proteínas',n:'Albóndigas en caldillo rojo',q:'6 pz',p:156},
   {s:'Kids Menu — Proteínas',n:'Hamburguesa de res',q:'1 pz',p:154},
-  // Kids Menu - Cereales
+  {s:'Kids Menu — Proteínas',n:'Kipe Bites',q:'6 pz',p:115},
+  {s:'Kids Menu — Proteínas',n:'Milanesa de pollo',q:'125 g',p:99},
+  {s:'Kids Menu — Proteínas',n:'Nuggets de pollo',q:'4 pz',p:147},
+  // Kids Menu — Cereales
   {s:'Kids Menu — Cereales',n:'Arroz blanco',q:'150 g',p:78},
   {s:'Kids Menu — Cereales',n:'Papas a la francesa',q:'120 g',p:110},
-  {s:'Kids Menu — Cereales',n:'Puré de papa',q:'150 g',p:85},
-  {s:'Kids Menu — Cereales',n:'Pasta roja',q:'150 g',p:98},
-  {s:'Kids Menu — Cereales',n:'Pasta roja',q:'150 g',p:98},
   {s:'Kids Menu — Cereales',n:'Pasta al burro',q:'150 g',p:93},
-  // Kids Menu - Verduras
+  {s:'Kids Menu — Cereales',n:'Pasta roja',q:'150 g',p:98},
+  {s:'Kids Menu — Cereales',n:'Pasta roja',q:'150 g',p:98},
+  {s:'Kids Menu — Cereales',n:'Puré de papa',q:'150 g',p:85},
+  // Kids Menu — Verduras
+  {s:'Kids Menu — Verduras',n:'Brócoli rostizado',q:'110 g',p:87},
   {s:'Kids Menu — Verduras',n:'Calabacitas salteadas',q:'110 g',p:69},
   {s:'Kids Menu — Verduras',n:'Champiñones',q:'110 g',p:76},
-  {s:'Kids Menu — Verduras',n:'Elote dulce con mantequilla',q:'100 g',p:49},
-  {s:'Kids Menu — Verduras',n:'Brócoli rostizado',q:'110 g',p:87},
   {s:'Kids Menu — Verduras',n:'Chícharos con mantequilla',q:'100 g',p:78},
-];
+  {s:'Kids Menu — Verduras',n:'Elote dulce con mantequilla',q:'100 g',p:49},
+]
 
 const LB_PROT = ['Barbacoa','Pastor de pollo','Pollo con alcachofas','Pescado empapelado','Carne con brocoli','Milanesa de pollo','Deditos de carne en salsa roja','Fajitas de pollo','Carnitas de atun fresco','Carne estofada con verduras','Pescado a la mantequilla','Albóndigas de res en jitomate','Teppanyaki de carne o pollo','Medallones de res','Chiles rellenos de carne','Pescado al pastor','Kebab','Salmón teriyaki','Brisket con champinon','Shawarma de pollo','Paella de carnes','Pollo con champinones','Atun sellado en cubos','Salpicon de pollo','Salpicon de carne','Kafta de carne','Pollo con mole','Kipe charola','Bistec a la mexicana','Pollo con berenjena','Alcachofas con pollo','Lasaña de verduras (con o sin queso)','Macarron con pollo','Enfrijoladas de queso y/o pollo','Tacos de tinga de jamaica','Brisket con papa cambray','Pescado al mojo de ajo','Pollo en salsa verde','Pastel azteca (con o sin queso)','Paella vegetariana'];
 const LB_CER = ['Arroz con fideo','Arroz rojo','Fideo seco','Arroz con lentejas','Arroz al vapor','Arroz blanco','Arroz mexicano','Papa a la francesa','Arroz al cilantro','Arroz amarillo','Quinoa con verduras','Puré de papa','Munición con garbanzos','Frijoles bayos','Rajas con papa','Pan pita','Pasta blanca'];
@@ -752,7 +866,19 @@ const CT_CATS = {
   ejecutivo: {prot:3,cer:2,verd:2,ensal:2,precio:720},
 };
 const GRAM = {prot:198,cer:165,verd:132,ensal:99,bot:6};
-const CT_PROT = [{n:'Barbacoa',p:890,g:1000},{n:'Trompo Shawarma Pollo',p:790,g:1000},{n:'Trompo Shawarma Carne',p:890,g:1000},{n:'Pollo Teriyaki',p:695,g:1000},{n:'Brisket con Champinon',p:940,g:1000},{n:'Pollo al Pastor',p:790,g:1000},{n:'Kebab',p:355,g:500},{n:'Pollo con Alcachofas',p:805,g:1000},{n:'Teppanyaki de pollo',p:460,g:1000},{n:'Teppanyaki de carne',p:487,g:1000},{n:'Albóndigas de res',p:485,g:750},{n:'Bistec a la mexicana',p:475,g:1000},{n:'Kafta de carne',p:437,g:1000},{n:'Medallones de res',p:469,g:1000},{n:'Salmón teriyaki',p:667,g:1000},{n:'Brisket con papa cambray',p:987,g:1000},{n:'Estofado de res',p:569,g:1000},{n:'Carne al adobo con zanahoria',p:497,g:1000},{n:'Pescado al mojo de ajo',p:679,g:1000},{n:'Pescado al limon y mantequilla',p:659,g:1000},{n:'Pollo en salsa verde',p:560,g:1000},{n:'Pollo con champinones',p:525,g:1000},{n:'Chiles rellenos de carne',p:258,g:600},{n:'Pescado empapelado',p:558,g:600},{n:'Milanesa de pollo',p:664,g:600},{n:'Fajitas de pollo',p:567,g:800},{n:'Shawarma de pollo',p:429,g:1000},{n:'Salpicon de pollo',p:569,g:1000},{n:'Salpicon de carne',p:620,g:1000},{n:'Pollo con mole',p:845,g:1000},{n:'Paella de carnes frias',p:595,g:1000},{n:'Paella de pescado',p:625,g:1000},{n:'Paella vegetariana',p:455,g:1000},{n:'Lasaña de verduras (con o sin queso)',p:540,g:1000},{n:'Pollo con berenjena',p:689,g:1000},{n:'Macarron con pollo',p:698,g:1000},{n:'Alcachofas con pollo',p:870,g:1000},{n:'Pastel azteca (con o sin queso)',p:495,g:1000}];
+const CT_PROT = [{n:'Barbacoa',p:890,g:1000},{n:'Trompo Shawarma Pollo',p:790,g:1000},{n:'Trompo Shawarma Carne',p:890,g:1000},{n:'Pollo Teriyaki',p:695,g:1000},{n:'Brisket con Champinon',p:940,g:1000},{n:'Pollo al Pastor',p:790,g:1000},{n:'Kebab',p:355,g:500},{n:'Pollo con Alcachofas',p:805,g:1000},{n:'Teppanyaki de pollo',p:460,g:1000},{n:'Teppanyaki de carne',p:487,g:1000},{n:'Albóndigas de res',p:485,g:750},{n:'Bistec a la mexicana',p:475,g:1000},{n:'Kafta de carne',p:437,g:1000},{n:'Medallones de res',p:469,g:1000},{n:'Salmón teriyaki',p:667,g:1000},{n:'Brisket con papa cambray',p:987,g:1000},{n:'Estofado de res',p:569,g:1000},{n:'Carne al adobo con zanahoria',p:497,g:1000},{n:'Pescado al mojo de ajo',p:679,g:1000},{n:'Pescado al limon y mantequilla',p:659,g:1000},{n:'Pollo en salsa verde',p:560,g:1000},{n:'Pollo con champinones',p:525,g:1000},{n:'Chiles rellenos de carne',p:258,g:600},{n:'Pescado empapelado',p:558,g:600},{n:'Milanesa de pollo',p:664,g:600},{n:'Fajitas de pollo',p:567,g:800},{n:'Shawarma de pollo',p:429,g:1000},{n:'Salpicon de pollo',p:569,g:1000},{n:'Salpicon de carne',p:620,g:1000},{n:'Pollo con mole',p:845,g:1000},{n:'Paella de carnes frias',p:595,g:1000},{n:'Paella de pescado',p:625,g:1000},{n:'Paella vegetariana',p:455,g:1000},{n:'Lasaña de verduras (con o sin queso)',p:540,g:1000},{n:'Pollo con berenjena',p:689,g:1000},{n:'Macarron con pollo',p:698,g:1000},{n:'Alcachofas con pollo',p:870,g:1000},{n:'Pastel azteca (con o sin queso)',p:495,g:1000},
+  {n:'Kipe charola de papa con pollo en salsa verde',p:695,g:1000},
+  {n:'Chícharos con carne',p:540,g:1000},
+  {n:'Spaguetti rojo con pechuga de pollo',p:485,g:1000},
+  {n:'Barbacoa con champiñones',p:995,g:1000},
+  {n:'Ribeye corte fino con salsa oriental de ajonjolí',p:1125,g:1000},
+  {n:'Cubos de pechuga de pollo agridulce',p:750,g:1000},
+  {n:'Chicken lo mein',p:589,g:1000},
+  {n:'Puntas de pechuga de pollo al pastor',p:567,g:1000},
+  {n:'Shawarma de pechuga de pollo',p:760,g:1000},
+  {n:'Sfijas de res',p:435,g:600,pz:12},
+  {n:'Tacos de pollo (cocido sin freír)',p:259,g:500,pz:12},
+  {n:'Tacos de barbacoa (cocido sin freír)',p:345,g:500,pz:12}];
 const CT_CER = [{n:'Arroz con Fideo',p:310,g:1000},{n:'Arroz con lentejas',p:359,g:1000},{n:'Arroz al cilantro',p:319,g:1000},{n:'Arroz amarillo',p:319,g:1000},{n:'Arroz rojo',p:329,g:1000},{n:'Arroz blanco',p:299,g:1000},{n:'Quinoa con verduras',p:315,g:1000},{n:'Puré de papa',p:195,g:500},{n:'Papa a la francesa',p:245,g:1000},{n:'Munición con garbanzos',p:354,g:1000},{n:'Rajas con papa',p:325,g:1000},{n:'Frijoles bayos',p:219,g:1000},{n:'Pan Pita',p:119,g:120}];
 const CT_VERD = [{n:'Berenjena Parmesana',p:645,g:1000},{n:'Soufflé de Calabaza',p:460,g:800},{n:'Calabazas Rellenas',p:540,g:1000},{n:'Jitomates Rellenos',p:560,g:1000},{n:'Nopales asados',p:null,g:1000}];
 const CT_ENSAL = [{n:'Ensalada árabe',p:120,g:250},{n:'Tabule',p:125,g:250},{n:'Coleslaw',p:125,g:250},{n:'Babaganoush',p:129,g:250},{n:'Betabel al limón',p:130,g:250},{n:'Edamames',p:135,g:250},{n:'Papa con huevo',p:125,g:250},{n:'Surimi especial',p:155,g:250},{n:'Ensalada de atún y apio',p:140,g:250}];
@@ -776,6 +902,172 @@ let activeCoupon = null;
 const COUPON_MIN = 1000;
 
 // ============================================================
+// SHABBAT PACKS
+// ============================================================
+const SHB_CARNE = [
+  ['Arroz con fideo','Munición con garbanzos','Macarrón con pollo'],
+  ['Hamod','Chícharos con carne','Ejotes en caldillo rojo','Barbacoa árabe','Kipe charola de trigo'],
+  ['Calabazas rellenas al limón de carne con arroz','Calabazas rellenas en salsa de tamarindo de carne con arroz','Kipe charola de papa con pollo en salsa verde','Shawarma de pollo al plato'],
+];
+const SHB_LACTEO = [
+  ['Arroz con lentejas','Trigo con queso','Torta de pasta con queso'],
+  ['Calabazas rellenas de arroz y garbanzo con jocoque','Calzones rellenos de queso con tallarín','Soufflé de calabaza'],
+  ['Berenjena parmesana','Salmón teriyaki','Lasaña de queso con verduras (con o sin queso)'],
+];
+const SHB_BOTANAS = [
+  {n:'Tjine preparado',p:129,d:'250 g'},
+  {n:'Hummus natural',p:129,d:'250 g'},
+  {n:'Salsa roja',p:89,d:'250 g'},
+  {n:'Salsa verde',p:89,d:'250 g'},
+  {n:'Ensalada árabe',p:120,d:'250 g'},
+  {n:'Ensalada de col blanca',p:129,d:'250 g'},
+  {n:'Ensalada de papa con huevo',p:125,d:'250 g'},
+  {n:'Tabule',p:125,d:'250 g'},
+  {n:'Surimi especial',p:155,d:'250 g'},
+  {n:'Papitas muy picosas',p:145,d:'200 g'},
+  {n:'Elotitos con mayo',p:125,d:'250 g'},
+  {n:'Chiles toreados',p:139,d:'250 g'},
+  {n:'Babaganoush',p:129,d:'250 g'},
+  {n:'Betabel al limón',p:130,d:'250 g'},
+  {n:'Betabel mayo',p:135,d:'250 g'},
+  {n:'Bazergan',p:135,d:'200 g'},
+  {n:'Atún con mayonesa',p:139,d:'250 g'},
+];
+
+let shbMode = 'carne';
+let shbSel = {c1:null, c2:null, c3:null, l1:null, l2:null, l3:null};
+let shbBotanas = {}; // {name: qty}
+const SHB_BASE = {carne: 3590, lacteo: 3195};
+
+function switchShabbat(mode, el) {
+  shbMode = mode;
+  document.querySelectorAll('.ct-mode').forEach(function(b) {
+    if (b.id && b.id.startsWith('shb-')) b.classList.remove('on');
+  });
+  el.classList.add('on');
+  document.getElementById('shb-carne').style.display = mode === 'carne' ? 'block' : 'none';
+  document.getElementById('shb-lacteo').style.display = mode === 'lacteo' ? 'block' : 'none';
+  shbCalc();
+}
+
+function initShabbat() {
+  // Build carne grids
+  SHB_CARNE.forEach(function(opts, gi) {
+    var grid = document.getElementById('shb-c' + (gi+1) + '-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    opts.forEach(function(opt) {
+      var d = document.createElement('div');
+      d.className = 'ct-item';
+      d.innerHTML = '<div class="ct-chk"></div><div class="ct-item-name">' + opt + '</div>';
+      d.addEventListener('click', function() {
+        shbPick('c', gi+1, opt, grid, d);
+      });
+      grid.appendChild(d);
+    });
+  });
+
+  // Build lacteo grids
+  SHB_LACTEO.forEach(function(opts, gi) {
+    var grid = document.getElementById('shb-l' + (gi+1) + '-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    opts.forEach(function(opt) {
+      var d = document.createElement('div');
+      d.className = 'ct-item';
+      d.innerHTML = '<div class="ct-chk"></div><div class="ct-item-name">' + opt + '</div>';
+      d.addEventListener('click', function() {
+        shbPick('l', gi+1, opt, grid, d);
+      });
+      grid.appendChild(d);
+    });
+  });
+
+  // Build botanas grid with qty controls
+  var botGrid = document.getElementById('shb-botanas-grid');
+  if (botGrid) {
+    botGrid.style.cssText = 'display:flex;flex-direction:column;gap:0;background:var(--s1);border:.5px solid var(--border);border-radius:var(--r);overflow:hidden';
+    botGrid.innerHTML = '';
+    SHB_BOTANAS.forEach(function(bot) {
+      shbBotanas[bot.n] = 0;
+      var row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:11px 16px;border-bottom:.5px solid var(--border)';
+      row.innerHTML =
+        '<div><div style="font-size:13px;color:var(--text)">' + bot.n + '</div>' +
+        '<div style="font-size:11px;color:var(--muted)">' + bot.d + ' &mdash; ' + fmt(bot.p) + ' por orden</div></div>' +
+        '<div style="display:flex;align-items:center;gap:8px">' +
+        '<button class="ctr-btn" data-bot="' + bot.n + '" data-d="-1">−</button>' +
+        '<span style="font-size:13px;min-width:24px;text-align:center" id="shbq-' + bot.n.replace(/[^a-z]/gi,'') + '">0</span>' +
+        '<button class="ctr-btn" data-bot="' + bot.n + '" data-d="1">+</button>' +
+        '<span style="font-size:12px;color:var(--gold);min-width:58px;text-align:right" id="shbp-' + bot.n.replace(/[^a-z]/gi,'') + '">$0</span>' +
+        '</div>';
+      row.querySelectorAll('.ctr-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var name = btn.dataset.bot;
+          var d = parseInt(btn.dataset.d);
+          var botObj = SHB_BOTANAS.find(function(b) { return b.n === name; });
+          shbBotanas[name] = Math.max(0, (shbBotanas[name] || 0) + d);
+          var key = name.replace(/[^a-z]/gi,'');
+          document.getElementById('shbq-' + key).textContent = shbBotanas[name];
+          document.getElementById('shbp-' + key).textContent = shbBotanas[name] > 0 ? fmt(shbBotanas[name] * botObj.p) : '$0';
+          shbCalc();
+        });
+      });
+      botGrid.appendChild(row);
+    });
+  }
+
+  shbCalc();
+}
+
+function shbPick(type, group, opt, grid, el) {
+  var key = type + group;
+  shbSel[key] = shbSel[key] === opt ? null : opt;
+  grid.querySelectorAll('.ct-item').forEach(function(item) { item.classList.remove('on'); item.querySelector('.ct-chk').textContent = ''; });
+  if (shbSel[key]) { el.classList.add('on'); el.querySelector('.ct-chk').textContent = '✓'; }
+  var countEl = document.getElementById('shb-' + key + '-count');
+  if (countEl) countEl.textContent = shbSel[key] ? '1/1' : '0/1';
+  shbCalc();
+}
+
+function shbCalc() {
+  var base = SHB_BASE[shbMode];
+  var botTotal = 0;
+  SHB_BOTANAS.forEach(function(bot) {
+    botTotal += (shbBotanas[bot.n] || 0) * bot.p;
+  });
+  var total = base + botTotal;
+
+  // Desglose
+  var dh = '<div style="display:flex;justify-content:space-between"><span>Paquete ' + (shbMode === 'carne' ? 'Carne' : 'Lácteo') + ' (6-8 personas)</span><span style="color:var(--text)">' + fmt(base) + '</span></div>';
+  if (botTotal > 0) dh += '<div style="display:flex;justify-content:space-between"><span>Botanas adicionales</span><span style="color:var(--text)">' + fmt(botTotal) + '</span></div>';
+  document.getElementById('shb-desglose').innerHTML = dh;
+  document.getElementById('shb-total').textContent = fmt(total);
+}
+
+function shabbatWA() {
+  var mode = shbMode === 'carne' ? 'Menú Carne' : 'Menú Lácteo';
+  var base = SHB_BASE[shbMode];
+  var msg = '*Shabbat Pack — Punto & Pausa*\n\n' + mode + ' (6-8 personas)\n';
+  // Selections
+  var groups = shbMode === 'carne'
+    ? [{k:'c1',l:'Grupo 1'},{k:'c2',l:'Grupo 2'},{k:'c3',l:'Grupo 3'}]
+    : [{k:'l1',l:'Grupo 1'},{k:'l2',l:'Grupo 2'},{k:'l3',l:'Grupo 3'}];
+  groups.forEach(function(g) {
+    if (shbSel[g.k]) msg += '\n' + g.l + ': ' + shbSel[g.k];
+  });
+  // Botanas
+  var botUsed = SHB_BOTANAS.filter(function(b) { return (shbBotanas[b.n] || 0) > 0; });
+  if (botUsed.length) {
+    msg += '\n\nBotanas adicionales:\n';
+    botUsed.forEach(function(b) { msg += '- ' + b.n + ' x' + shbBotanas[b.n] + ' = ' + fmt(shbBotanas[b.n] * b.p) + '\n'; });
+  }
+  msg += '\n*Total: ' + document.getElementById('shb-total').textContent + '*';
+  msg += '\n\nFavor confirmar disponibilidad y fecha de entrega.';
+  window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg));
+}
+
+// ============================================================
 // NAV
 // ============================================================
 document.querySelectorAll('.nav-tab').forEach(function(tab) {
@@ -788,11 +1080,12 @@ function goSec(sec) {
   document.querySelectorAll('.nav-tab').forEach(function(t) {
     t.classList.toggle('on', t.dataset.sec === sec);
   });
-  ['home','vacuum','lunch','catering'].forEach(function(s) {
+  ['home','vacuum','lunch','catering','shabbat'].forEach(function(s) {
     var el = document.getElementById('sec-' + s);
     if (el) el.style.display = s === sec ? 'block' : 'none';
   });
   if (sec === 'catering') initCatering();
+  if (sec === 'shabbat') initShabbat();
 }
 
 function goHome() { goSec('home'); }
