@@ -277,6 +277,7 @@ td{padding:9px 12px;vertical-align:middle}
  <button class="nav-tab" data-sec="lunch">Lunch Box</button>
  <button class="nav-tab" data-sec="catering">Catering</button>
  <button class="nav-tab" data-sec="shabbat">Shabbat Packs</button>
+  <button class="nav-tab" data-sec="cursos">Cursos</button>
  </nav>
 </div>
 
@@ -536,6 +537,112 @@ td{padding:9px 12px;vertical-align:middle}
  </div>
 </div>
 
+
+<!-- CURSOS DE COCINA -->
+<div id="sec-cursos" style="display:none">
+  <div class="hero">
+    <div class="hero-tag">Aprende &middot; Disfruta &middot; Cocina</div>
+    <h1 class="hero-h">Cursos de Cocina</h1>
+    <p class="hero-p">Cocina arabe y mediterranea autentica. Grupos reducidos, experiencia practica y degustacion al final de cada sesion.</p>
+  </div>
+  <div class="wrap">
+
+    <div style="background:rgba(201,169,110,0.08);border:.5px solid var(--borderg);border-radius:var(--r);padding:14px 18px;margin-bottom:16px;font-size:12px;color:var(--muted);line-height:1.9">
+      <b style="color:var(--gold)">Politica de pago:</b> Todos los cursos requieren <b style="color:var(--text)">50% de anticipo</b> no reembolsable para reservar tu lugar. El 50% restante se liquida el primer dia.<br>
+      <b style="color:var(--gold)">Insumos y utensilios:</b> <b style="color:var(--text)">No estan incluidos</b> en el costo del curso. Una vez realizado tu pago, solicita tu lista personalizada por WhatsApp — puede variar segun los platillos elegidos y lo que ya tengas en casa.
+    </div>
+
+    <!-- CURSO 1: RECIEN CASADAS -->
+    <div class="ct-card" style="margin-bottom:14px">
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Curso 1</div>
+      <div style="font-family:var(--serif);font-size:19px;color:var(--text);margin-bottom:4px;font-weight:normal">Cocina para recien casadas</div>
+      <div style="font-family:var(--serif);font-size:21px;color:var(--gold);margin-bottom:10px">$3,200 <span style="font-size:12px;color:var(--muted)">por persona &bull; 4 sesiones</span></div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:12px">Aprende recetas arabes y mediterraneas desde cero. Elige <b style="color:var(--text)">1 platillo por sesion</b> (4 en total). Incluye degustacion al final de cada clase.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px">
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">4 sesiones &bull; 2-3 hrs c/u</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Nivel principiante</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Grupos reducidos</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Insumos NO incluidos</span>
+      </div>
+      <div style="margin-bottom:14px">
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Elige tus 4 platillos (1 por sesion)</div>
+        <div style="display:flex;flex-direction:column;gap:7px" id="sel-casadas"></div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Anticipo: <b style="color:var(--gold)">$1,600</b></div>
+      <button class="btn-primary" style="max-width:280px;display:block;text-align:center;padding:13px 20px;font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;background:var(--gold);color:#0F0F0F" onclick="window.open('https://buy.stripe.com/cNi9AT2t585m5Ha8jY83C00')">Pagar y reservar lugar</button>
+    </div>
+
+    <!-- CURSO 2: EMPLEADAS -->
+    <div class="ct-card" style="margin-bottom:14px">
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Curso 2</div>
+      <div style="font-family:var(--serif);font-size:19px;color:var(--text);margin-bottom:4px;font-weight:normal">Cocina para empleadas domesticas</div>
+      <div style="font-family:var(--serif);font-size:21px;color:var(--gold);margin-bottom:10px">$2,400 <span style="font-size:12px;color:var(--muted)">por persona &bull; 4 sesiones</span></div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:12px">Capacita a tu empleada en platillos gourmet mediterraneos. Elige <b style="color:var(--text)">1 platillo por sesion</b> (4 en total). Incluye etiqueta y presentacion de mesa.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px">
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">4 sesiones &bull; 2-3 hrs c/u</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Basico a intermedio</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Horario flexible</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Insumos NO incluidos</span>
+      </div>
+      <div style="margin-bottom:14px">
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Elige 4 platillos (1 por sesion)</div>
+        <div style="display:flex;flex-direction:column;gap:7px" id="sel-empleadas"></div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Anticipo: <b style="color:var(--gold)">$1,200</b></div>
+      <button class="btn-primary" style="max-width:280px;display:block;text-align:center;padding:13px 20px;font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;background:var(--gold);color:#0F0F0F" onclick="window.open('https://buy.stripe.com/28E6oH3x9dpGfhKfMq83C01')">Pagar y reservar lugar</button>
+    </div>
+
+    <!-- CURSO 3: NINOS -->
+    <div class="ct-card" style="margin-bottom:14px">
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Curso 3</div>
+      <div style="font-family:var(--serif);font-size:19px;color:var(--text);margin-bottom:4px;font-weight:normal">Cocina para ninos por las tardes</div>
+      <div style="font-family:var(--serif);font-size:21px;color:var(--gold);margin-bottom:10px">$2,800 <span style="font-size:12px;color:var(--muted)">por nino &bull; mensual (8 sesiones)</span></div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:12px">Ninos 6-14 anos aprenden cocina arabe y mediterranea de forma divertida. Elige <b style="color:var(--text)">1 platillo por sesion</b> (8 en total). Incluye recetario digital.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px">
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">8 sesiones al mes</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Tardes entre semana</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Ninos 6-14 anos</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Insumos NO incluidos</span>
+      </div>
+      <div style="margin-bottom:14px">
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Elige 8 platillos (1 por sesion)</div>
+        <div style="display:flex;flex-direction:column;gap:7px" id="sel-ninos"></div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Anticipo: <b style="color:var(--gold)">$1,400</b></div>
+      <button class="btn-primary" style="max-width:280px;display:block;text-align:center;padding:13px 20px;font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;background:var(--gold);color:#0F0F0F" onclick="window.open('https://buy.stripe.com/28E14n8Rt1GY9Xq0Rw83C02')">Pagar 4 sesiones — $3,400</button>
+      <button class="btn-wa-full" style="max-width:280px;margin-top:8px" onclick="window.open('https://buy.stripe.com/bJe00j5Fh71i6Le6bQ83C03')">Pagar 8 sesiones — $6,800</button>
+    </div>
+
+    <!-- CURSO 4: EN PAREJA -->
+    <div class="ct-card" style="margin-bottom:14px">
+      <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px">Curso 4</div>
+      <div style="font-family:var(--serif);font-size:19px;color:var(--text);margin-bottom:4px;font-weight:normal">Cocina en pareja</div>
+      <div style="font-family:var(--serif);font-size:21px;color:var(--gold);margin-bottom:10px">$1,400 <span style="font-size:12px;color:var(--muted)">por persona &bull; sesion unica 3 hrs</span></div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:12px">Una experiencia unica para vivir en pareja. Cocinan juntos <b style="color:var(--text)">3 platillos</b> arabes y mediterraneos y al final degustamos con copa de vino incluida. Perfecto para aniversario, cita especial o regalo.</div>
+      <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px">
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">1 sesion &bull; 3 horas</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">3 platillos a elegir</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Copa de vino incluida</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Fines de semana</span>
+        <span style="background:var(--s2);border:.5px solid var(--border);border-radius:20px;padding:3px 11px;font-size:11px;color:var(--muted)">Insumos NO incluidos</span>
+      </div>
+      <div style="margin-bottom:14px">
+        <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">Elige 3 platillos para su sesion</div>
+        <div style="display:flex;flex-direction:column;gap:7px" id="sel-pareja"></div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:12px">Anticipo: <b style="color:var(--gold)">$700 por persona</b></div>
+      <button class="btn-primary" style="max-width:280px;display:block;text-align:center;padding:13px 20px;font-size:14px;font-weight:700;border:none;border-radius:8px;cursor:pointer;background:var(--gold);color:#0F0F0F" onclick="window.open('https://buy.stripe.com/aFa00jc3FetK8TmcAe83C04')">Pagar y reservar lugar</button>
+    </div>
+
+    <!-- GRUPOS -->
+    <div class="ct-anticipo">
+      <div class="ct-ant-h">Grupos y cursos a la medida</div>
+      <div class="ct-ant-p">Si tienes un grupo especial, quieres un curso privado o una experiencia para tu empresa, contactanos.</div>
+      <button class="btn-wa-full" style="margin-top:14px" onclick="cursoWA('grupo')">Consultar por WhatsApp</button>
+    </div>
+
+  </div>
+</div>
 <div class="sticky-bar" id="stickyBar">
  <div>
  <div style="font-size:11px;color:var(--muted)">Total sin envio</div>
@@ -564,6 +671,9 @@ td{padding:9px 12px;vertical-align:middle}
  <div class="cart-tot-row" id="discRow" style="display:none"><div class="cart-tot-lbl" style="color:var(--gold)">Descuento</div><div style="font-size:16px;color:var(--gold)" id="cartDisc"></div></div>
  <div class="cart-tot-row"><div class="cart-tot-lbl">Total</div><div class="cart-tot-amt" id="cartTot">$0</div></div>
  <div class="cart-note">El costo de envío se calcula al confirmar.<br>Las fechas de entrega se agendan vía WhatsApp después de realizar el pedido.</div>
+<div style="font-size:11px;color:var(--muted);background:var(--s2);border-radius:8px;padding:10px 12px;margin-bottom:12px;line-height:1.7">
+  Nuestros productos se preparan en una cocina donde se utilizan gluten, lacteos, huevo, nueces y otros alergenos. Punto &amp; Pausa no se hace responsable por reacciones alergicas. Si tienes alguna restriccion alimentaria, informanos antes de ordenar.
+</div>
  <button class="btn-primary" onclick="openCheckout()">Proceder al pago &rarr;</button>
  </div>
 </div>
@@ -627,7 +737,11 @@ td{padding:9px 12px;vertical-align:middle}
  </div>
  </div>
  <div class="modal-foot">
- <button class="btn-primary" onclick="goStep2()">Continuar al pago &rarr;</button>
+ <div onclick="toggleTerms()" style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;margin-bottom:12px;padding:12px;background:var(--s2);border:.5px solid var(--border);border-radius:8px">
+   <div id="termsCheck" style="width:18px;height:18px;border-radius:4px;border:1.5px solid var(--muted);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#0F0F0F;transition:all .15s"></div>
+   <div style="font-size:12px;color:var(--muted);line-height:1.6">Acepto los <button onclick="openTerms(event)" style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:12px;text-decoration:underline;padding:0">terminos y condiciones</button>, incluyendo la politica de devoluciones y cancelaciones.</div>
+ </div>
+ <button class="btn-primary" id="btnContinuar" onclick="goStep2()" disabled style="opacity:.5">Continuar al pago &rarr;</button>
  <button class="btn-sec" onclick="closeCheckout()">Cancelar</button>
  </div>
  </div>
@@ -717,6 +831,43 @@ td{padding:9px 12px;vertical-align:middle}
     </div>
     <div class="photo-modal-name" id="photoName"></div>
     <div class="photo-modal-price" id="photoPrice"></div>
+  </div>
+</div>
+
+
+<!-- TERMINOS Y CONDICIONES MODAL -->
+<div class="modal-ov" id="termsOv" onclick="closeTerms(event)">
+  <div class="modal" style="max-width:560px">
+    <div class="modal-hdr" style="position:sticky;top:0">
+      <h2>Terminos y Condiciones</h2>
+      <button onclick="document.getElementById('termsOv').classList.remove('on')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:20px">&times;</button>
+    </div>
+    <div class="modal-body" style="font-size:13px;color:var(--muted);line-height:1.9">
+
+      <div class="fg-title">1. Pedidos y pagos</div>
+      <p style="margin-bottom:14px">Todos los pedidos se confirman unicamente al recibir el pago completo (Frozen Packs y Lunch Box) o el anticipo del 50% (Catering). Los precios estan sujetos a cambio sin previo aviso.</p>
+
+      <div class="fg-title">2. Tiempos de entrega</div>
+      <p style="margin-bottom:14px">Las entregas de Frozen Packs y Lunch Box se realizan a partir de <b style="color:var(--text)">3 dias habiles</b> despues de confirmado el pedido. La fecha exacta se coordina por WhatsApp. Punto &amp; Pausa no se hace responsable por retrasos causados por factores externos.</p>
+
+      <div class="fg-title">3. Politica de devoluciones</div>
+      <p style="margin-bottom:14px"><b style="color:var(--text)">No se aceptan devoluciones por falta de satisfaccion.</b> Unicamente se considera devolucion o reposicion en caso de error de nuestra parte (producto equivocado o en mal estado), y debe reportarse el <b style="color:var(--text)">mismo dia de la entrega</b> via WhatsApp con evidencia fotografica.</p>
+
+      <div class="fg-title">4. Cancelaciones — Catering y Cursos</div>
+      <p style="margin-bottom:14px">El anticipo del 50% pagado para confirmar un evento de catering o inscribirse a un curso <b style="color:var(--text)">no es reembolsable</b> en caso de cancelacion por parte del cliente, independientemente del motivo o tiempo de anticipacion.</p>
+
+      <div class="fg-title">5. Shabbat Packs</div>
+      <p style="margin-bottom:14px">Los pedidos de Shabbat Packs deben realizarse antes del <b style="color:var(--text)">jueves de cada semana</b>. Las fechas pueden variar en vacaciones y dias festivos. Los pedidos fuera de tiempo quedaran sujetos a disponibilidad.</p>
+
+      <div class="fg-title">6. Alergenos e ingredientes</div>
+      <p style="margin-bottom:14px">Nuestros productos se preparan en una cocina donde se utilizan nueces, gluten, lacteos, huevo y otros alergenos. Si tienes restricciones alimentarias, comunicalas al momento de realizar tu pedido.</p>
+
+      <div class="fg-title">7. Imagenes referenciales</div>
+      <p style="margin-bottom:14px">Las fotografias de los productos son de caracter referencial. La presentacion final puede variar ligeramente.</p>
+
+      <div class="fg-title">8. Contacto</div>
+      <p>Para cualquier aclaracion, contactanos por WhatsApp al <b style="color:var(--text)">55 7938 5701</b>. Estamos para ayudarte.</p>
+    </div>
   </div>
 </div>
 
@@ -945,7 +1096,7 @@ const COUPON_MIN = 1000;
 // ============================================================
 const SHB_CARNE = [
  ['Arroz con fideo','Munición con garbanzos','Macarrón con pollo'],
- ['Hamod','Chícharos con carne','Ejotes en caldillo rojo','Barbacoa árabe','Kipe charola de trigo'],
+ ['Hamod','Chícharos con carne','Ejotes en caldillo rojo','Barbacoa','Kipe charola de trigo'],
  ['Calabazas rellenas al limón de carne con arroz','Calabazas rellenas en salsa de tamarindo de carne con arroz','Kipe charola de papa con pollo en salsa verde','Shawarma de pollo al plato'],
 ];
 const SHB_LACTEO = [
@@ -1139,12 +1290,13 @@ function goSec(sec) {
  document.querySelectorAll('.nav-tab').forEach(function(t) {
  t.classList.toggle('on', t.dataset.sec === sec);
  });
- ['home','vacuum','lunch','catering','shabbat'].forEach(function(s) {
+ ['home','vacuum','lunch','catering','shabbat','cursos'].forEach(function(s) {
  var el = document.getElementById('sec-' + s);
  if (el) el.style.display = s === sec ? 'block' : 'none';
  });
  if (sec === 'catering') initCatering();
  if (sec === 'shabbat') initShabbat();
+  if (sec === 'cursos') initCursos();
 }
 
 function goHome() { goSec('home'); }
@@ -1616,7 +1768,7 @@ function openCheckout() {
  document.getElementById('step1').style.display = 'block';
  document.getElementById('step2').style.display = 'none';
  document.getElementById('successScreen').classList.remove('on');
- document.getElementById('checkoutOv').classList.add('on');
+ termsAccepted = false; var chk2=document.getElementById('termsCheck'); var btn2=document.getElementById('btnContinuar'); if(chk2){chk2.style.background='';chk2.style.borderColor='var(--muted)';chk2.textContent='';} if(btn2){btn2.disabled=true;btn2.style.opacity='.5';} document.getElementById('checkoutOv').classList.add('on');
  document.getElementById('cartPanel').classList.remove('on');
  document.getElementById('overlay').classList.remove('on');
  loadSavedData();
@@ -1670,16 +1822,35 @@ function fetchCP(cp, preselect) {
   var st = document.getElementById('cpStatus');
   // Local CP database for common Mexican postal codes
   var cpDB = {
-    '52764': {mun:'Atizapan de Zaragoza', edo:'Estado de Mexico', cols:['Ampliacion San Marcos','Arboledas del Sur','Bosque Real','El Palmar','Hacienda de las Palmas','Interlomas','La Herradura','La Herradura Seccion I','La Herradura Seccion II','Lomas Anahuac','Naucalpan de Juarez','Prado Vallejo','Residencial el Campanario','San Mateo Nopala','Santa Cruz Acatlan','Valle Escondido']},
+    // Zona Huixquilucan
+    '52764': {mun:'Huixquilucan', edo:'Estado de Mexico', cols:['Bosque Real','Bosques de la Herradura','Bosques de las Palmas','Green House','Hacienda de las Palmas','Interlomas','Jardines de la Herradura','Jesus del Monte','La Herradura','La Herradura Seccion I','La Herradura Seccion II','La Herradura Seccion III','Lomas Anahuac','Lomas Country Club','Lomas de la Herradura','Lomas de las Palmas','Lomas de Tecamachalco Seccion Bosques I y II','Lomas de Tecamachalco Seccion Cumbres','Valle Escondido']},
+    '52780': {mun:'Huixquilucan', edo:'Estado de Mexico', cols:['Bosques de las Lomas','Lomas de Tecamachalco Seccion Bosques I y II','Lomas de Tecamachalco Seccion Cumbres']},
+    '52774': {mun:'Huixquilucan', edo:'Estado de Mexico', cols:['Jesus del Monte','Lomas de Jesus del Monte']},
+    '52763': {mun:'Huixquilucan', edo:'Estado de Mexico', cols:['Interlomas','Bosques de Interlomas','Paseo Interlomas']},
+    // Zona Tecamachalco Naucalpan
+    '53950': {mun:'Naucalpan de Juarez', edo:'Estado de Mexico', cols:['Lomas de Tecamachalco','San Miguel Tecamachalco','Fuentes Tecamachalco','Lomas San Isidro','Residencial Militar']},
+    '53960': {mun:'Naucalpan de Juarez', edo:'Estado de Mexico', cols:['Lomas de Tecamachalco','Fuentes Tecamachalco','San Miguel Tecamachalco']},
+    '53970': {mun:'Naucalpan de Juarez', edo:'Estado de Mexico', cols:['San Miguel Tecamachalco','Lomas de Tecamachalco']},
+    // Polanco
+    '11510': {mun:'Miguel Hidalgo', edo:'Ciudad de Mexico', cols:['Polanco I Seccion','Polanco II Seccion','Polanco III Seccion']},
+    '11520': {mun:'Miguel Hidalgo', edo:'Ciudad de Mexico', cols:['Polanco I Seccion','Polanco II Seccion','Polanco III Seccion','Polanco IV Seccion','Polanco V Seccion']},
+    '11550': {mun:'Miguel Hidalgo', edo:'Ciudad de Mexico', cols:['Polanco IV Seccion','Polanco V Seccion']},
+    '11560': {mun:'Miguel Hidalgo', edo:'Ciudad de Mexico', cols:['Polanco V Seccion']},
+    // Bosques de las Lomas CDMX
+    '11700': {mun:'Miguel Hidalgo', edo:'Ciudad de Mexico', cols:['Bosque de las Lomas','Bosques de las Lomas']},
     '11000': {mun:'Miguel Hidalgo', edo:'Ciudad de Mexico', cols:['Lomas de Chapultepec','Bosque de Chapultepec']},
+    '11010': {mun:'Miguel Hidalgo', edo:'Ciudad de Mexico', cols:['Lomas de Chapultepec I Seccion','Lomas de Chapultepec II Seccion','Lomas de Chapultepec III Seccion']},
+    // Otras zonas frecuentes
+    '11590': {mun:'Miguel Hidalgo', edo:'Ciudad de Mexico', cols:['Anzures']},
     '06600': {mun:'Cuauhtemoc', edo:'Ciudad de Mexico', cols:['Juarez','Roma Norte']},
-    '11520': {mun:'Miguel Hidalgo', edo:'Ciudad de Mexico', cols:['Polanco','Polanco I Seccion','Polanco II Seccion','Polanco III Seccion','Polanco IV Seccion','Polanco V Seccion']},
-    '03100': {mun:'Benito Juarez', edo:'Ciudad de Mexico', cols:['Del Valle','Del Valle Centro','Del Valle Norte','Del Valle Sur']},
-    '01000': {mun:'Alvaro Obregon', edo:'Ciudad de Mexico', cols:['San Angel','San Angel Inn']},
     '06700': {mun:'Cuauhtemoc', edo:'Ciudad de Mexico', cols:['Roma Sur','Roma Norte']},
-    '14000': {mun:'Tlalpan', edo:'Ciudad de Mexico', cols:['Tlalpan Centro','Pedregal de San Nicolas']},
+    '06600': {mun:'Cuauhtemoc', edo:'Ciudad de Mexico', cols:['Juarez']},
+    '03100': {mun:'Benito Juarez', edo:'Ciudad de Mexico', cols:['Del Valle Centro','Del Valle Norte','Del Valle Sur']},
+    '01000': {mun:'Alvaro Obregon', edo:'Ciudad de Mexico', cols:['San Angel','San Angel Inn']},
+    '53125': {mun:'Naucalpan de Juarez', edo:'Estado de Mexico', cols:['Lomas de San Isidro','Fuente de Trevi','Fuente de Molinos']},
     '53100': {mun:'Naucalpan de Juarez', edo:'Estado de Mexico', cols:['Ciudad Satelite','Satelite']},
-    '52140': {mun:'Metepec', edo:'Estado de Mexico', cols:['Metepec Centro','San Sebastian','Pilares']},
+    '52764': {mun:'Atizapan de Zaragoza', edo:'Estado de Mexico', cols:['Ampliacion San Marcos','Arboledas del Sur','Bosque Real','El Palmar','Hacienda de las Palmas','Interlomas','La Herradura','La Herradura Seccion I','La Herradura Seccion II','Lomas Anahuac','Naucalpan de Juarez','Prado Vallejo','Residencial el Campanario','San Mateo Nopala','Santa Cruz Acatlan','Valle Escondido']},
+
   };
 
   var found = cpDB[cp];
@@ -1936,6 +2107,74 @@ function showBdayBanner(nombre, coupon) {
 // ============================================================
 // WA
 // ============================================================
+
+
+var termsAccepted = false;
+function toggleTerms() {
+  termsAccepted = !termsAccepted;
+  var chk = document.getElementById('termsCheck');
+  var btn = document.getElementById('btnContinuar');
+  if (chk) { chk.style.background = termsAccepted ? 'var(--gold)' : ''; chk.style.borderColor = termsAccepted ? 'var(--gold)' : 'var(--muted)'; chk.textContent = termsAccepted ? '\u2713' : ''; }
+  if (btn) { btn.disabled = !termsAccepted; btn.style.opacity = termsAccepted ? '1' : '.5'; }
+}
+function openTerms(e) {
+  if (e) e.stopPropagation();
+  document.getElementById('termsOv').classList.add('on');
+}
+function closeTerms(e) {
+  if (e.target === document.getElementById('termsOv')) document.getElementById('termsOv').classList.remove('on');
+}
+
+
+var CURSO_PLATILLOS = ["Albondigas de res en jitomate", "Alcachofas con pollo", "Barbacoa", "Barbacoa con champinones", "Berenjena Parmesana", "Bistec a la mexicana", "Brisket con champinon", "Brisket con papa cambray", "Calabazas rellenas de arroz con garbanzos y mantequilla", "Calabazas rellenas de carne con arroz al limon", "Calabazas rellenas de carne con arroz en salsa de tamarindo", "Carne al adobo con zanahoria", "Chicharos con carne", "Chicken lo mein", "Chiles rellenos de carne", "Cubos de pechuga de pollo agridulce", "Estofado de res con verduras", "Fajitas de pollo asadas", "Falafel Frito", "Hojas de Parra", "Jitomates Rellenos", "Kafta de carne", "Kebab", "Kipe Basha", "Kipe Charola Individual", "Kipe Charola de Trigo", "Kipe Eras", "Kipe Hamda (kipe chiquito)", "Kipe Nayyeh / Crudo", "Kipe Rollo", "Kipe Shami / Bola", "Kipe charola de papa relleno de pollo en salsa verde", "Kipe de papa con queso", "Kipe de papa relleno de pollo", "Lajmayin", "Lasana de verduras (con o sin queso)", "Macarron con pollo", "Medallones de res", "Milanesa de pollo empanizada", "Mini pizzas", "Paella de carnes frias", "Paella de pescado", "Paella vegetariana", "Pasta Rolls", "Pastel azteca (con o sin queso)", "Pescado al limon y mantequilla", "Pescado al mojo de ajo", "Pescado empapelado", "Pollo Teriyaki", "Pollo al Pastor", "Pollo con alcachofas", "Pollo con berenjena al horno", "Pollo con champinones", "Pollo con mole", "Pollo en salsa verde con nopales", "Puntas de pechuga de pollo al pastor", "Ribeye corte fino con salsa oriental de ajonjoli", "Salmon teriyaki", "Salpicon de carne", "Salpicon de pollo", "Sfijas de res", "Shawarma de carne", "Shawarma de pechuga de pollo", "Shawarma de pollo", "Souffle de Calabaza", "Spaguetti rojo con pechuga de pollo", "Tacos de barbacoa (cocido sin freir)", "Tacos de pollo (cocido sin freir)", "Tallarin con Calzones de Queso", "Teppanyaki de carne", "Teppanyaki de pollo", "Tinga de jamaica"];
+
+var cursoSel = {casadas:[], empleadas:[], ninos:[], pareja:[]};
+var cursoLimits = {casadas:4, empleadas:4, ninos:8, pareja:3};
+
+function initCursos() {
+  buildCursoSel('casadas', 4);
+  buildCursoSel('empleadas', 4);
+  buildCursoSel('ninos', 8);
+  buildCursoSel('pareja', 3);
+}
+
+function buildCursoSel(tipo, n) {
+  var container = document.getElementById('sel-' + tipo);
+  if (!container) return;
+  container.innerHTML = '';
+  for (var i = 0; i < n; i++) {
+    (function(idx) {
+      var row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:8px';
+      row.innerHTML = '<span style="font-size:11px;color:var(--muted);min-width:60px">Sesion ' + (idx+1) + ':</span>' +
+        '<select data-tipo="' + tipo + '" data-idx="' + idx + '" style="flex:1;background:var(--s2);border:.5px solid var(--border);border-radius:7px;padding:9px 12px;color:var(--muted);font-size:13px;appearance:none">' +
+        '<option value="">-- Elige un platillo --</option>' +
+        CURSO_PLATILLOS.map(function(p){return '<option value="' + p + '">' + p + '</option>';}).join('') +
+        '</select>';
+      var sel = row.querySelector('select');
+      sel.addEventListener('change', function() {
+        cursoSel[tipo][idx] = sel.value;
+      });
+      container.appendChild(row);
+    })(i);
+  }
+}
+
+function cursoWA(tipo) {
+  var nombres = {casadas:'Cocina para recien casadas ($3,200/persona)', empleadas:'Cocina para empleadas domesticas ($2,400/persona)', ninos:'Cocina para ninos ($2,800/nino/mes)', pareja:'Cocina en pareja ($1,400/persona)', grupo:'Curso personalizado / grupo especial'};
+  var msg = 'Hola, me interesa reservar lugar en el curso: ' + (nombres[tipo] || tipo);
+  var sels = cursoSel[tipo] || [];
+  var elegidos = sels.filter(function(s){return s;});
+  if (elegidos.length > 0) {
+    msg += '\n\nPlatillos elegidos:\n';
+    elegidos.forEach(function(p, i) { msg += (i+1) + '. ' + p + '\n'; });
+  }
+  msg += '\n\nPor favor indiquenme disponibilidad de fechas.';
+  window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg));
+}
+
+
+
 function openWA() { window.open('https://wa.me/'+WA+'?text='+encodeURIComponent('Hola, necesito ayuda con mi pedido en Punto & Pausa.')); }
 
 // ============================================================
